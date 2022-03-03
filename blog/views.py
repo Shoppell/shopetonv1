@@ -12,7 +12,7 @@ from django.urls import reverse
 from azbankgateways import bankfactories, models as bank_models, default_settings as settings
 from shop.decorators import just_owner
 
-@login_required
+@login_required(login_url='register')
 def callback_gateway_shop(request):
     tracking_code = request.GET.get(settings.TRACKING_CODE_QUERY_PARAM, None)
     if not tracking_code:
@@ -38,7 +38,7 @@ def callback_gateway_shop(request):
     return HttpResponse("پرداخت با شکست مواجه شده است. اگر پول کم شده است ظرف مدت ۴۸ ساعت پول به حساب شما بازخواهد گشت.")
 
 
-@login_required
+@login_required(login_url='register')
 def go_to_gateway_shop(request):
     
     my_cart = wishlist.objects.filter(paid=False).filter(buyer=request.user)
@@ -176,7 +176,7 @@ def contact(request):
     return render(request, 'blog/contact_us.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 def profile(request):
 
     user = request.user
@@ -195,7 +195,7 @@ def profile(request):
     return render(request, 'blog/profile.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 @just_owner
 def my_tickets(request):
 

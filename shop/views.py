@@ -122,7 +122,7 @@ def shop(request, slug):
     return render(request, 'shop/shop.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 @just_owner
 def update_shop(request):
     me = User.objects.get(mobile=request.user.mobile)
@@ -146,7 +146,7 @@ def update_shop(request):
     return render(request, 'shop/update_shop.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 def add_shop(request):
 
     if request.method == 'POST':
@@ -173,7 +173,7 @@ def add_shop(request):
     return render(request, 'shop/add_shop.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 @just_owner
 def update_product(request, pk):
     me = User.objects.get(mobile=request.user.mobile)
@@ -200,7 +200,7 @@ def update_product(request, pk):
     return render(request, 'shop/update_product.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 @just_owner
 def add_product(request):
     if request.method == 'POST':
@@ -223,7 +223,6 @@ def add_product(request):
 
 
 def product_details(request, slug, pk):
-    my_shop = request.user.shop
     shop = myshop.objects.get(slug=slug)
     own = False
     product_details = shop.products.get(pk=pk)
@@ -271,6 +270,7 @@ def product_details(request, slug, pk):
             form2 = Wishlist()
             return redirect('update_product', pk)
         elif request.POST['action'] == 'delete':
+            my_shop = request.user.shop
             form1 = CommentForm()
             form2 = Wishlist()
             if my_shop.pk == shop.pk:
@@ -300,13 +300,13 @@ def product_details(request, slug, pk):
             add_comment = True
     num_photos = 0
     if product_details.photo_3:
-        num_photos+=1
+        num_photos += 1
     if product_details.photo_4:
-        num_photos+=1
+        num_photos += 1
     if product_details.photo_5:
-        num_photos+=1
+        num_photos += 1
     if product_details.photo_6:
-        num_photos+=1
+        num_photos += 1
     any = True
     context = {
                 'own': own,
@@ -330,7 +330,7 @@ def product_details(request, slug, pk):
     return render(request, 'shop/product-details.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 def cart(request):
     if request.user.is_authenticated:
         if request.user.owner:
@@ -343,12 +343,9 @@ def cart(request):
         pk = request.POST['action']
         wishlist_o = wishlist.objects.filter(pk=pk)
         wishlist_o.delete()
-
     if request.user.is_anonymous:
         is_owner = ""
         context = {
-            'scategory':SupCategory.objects.all(),
-            'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
             'shop': shop,
             'is_owner': is_owner,
             'wish_list': wishlist_p,
@@ -379,7 +376,7 @@ def cart(request):
     return render(request, 'blog/cart.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 def bought(request):
     wishlist_all = wishlist.objects.filter(buyer=request.user).filter(paid=True).order_by('-time_add')
     context = {
@@ -390,7 +387,7 @@ def bought(request):
     return render(request, 'blog/bought.html', context)
     
     
-@login_required
+@login_required(login_url='register')
 @just_owner
 def sold(request):
     my_shop = request.user.shop
@@ -403,7 +400,7 @@ def sold(request):
     return render(request, 'blog/sold.html', context)
 
 
-@login_required
+@login_required(login_url='register')
 @just_owner
 def sold_detail(request, pk):
     my_shop = request.user.shop
@@ -426,7 +423,7 @@ def sold_detail(request, pk):
     return render(request, 'blog/sold_detail.html', context)
     
     
-@login_required
+@login_required(login_url='register')
 def post_info(request):
     wish_me = wishlist.objects.filter(buyer=request.user).filter(paid=False)
     post_m = postinfo.objects.filter(user=request.user).order_by('-time_add').first()
