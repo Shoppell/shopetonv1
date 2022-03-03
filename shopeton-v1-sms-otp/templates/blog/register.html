@@ -1,0 +1,114 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <br>
+{% if form.errors %}
+       {% for field in form %}
+           {% for error in field.errors %}
+              <div class="alert alert-danger">
+                   <strong>{{ error|escape }}</strong>
+              </div>
+           {% endfor %}
+       {% endfor %}
+    {% endif %}
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 col-xl-9 mx-auto">
+        <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+          <div class="card-img-left d-none d-md-flex">
+            <img src="../../static/images/register.jpg">
+          </div>
+          <div class="card-body p-6 p-sm-5" style="margin-left: 20px">
+            <h5 class="card-title text-center mb-5 fw-light fs-5" style="font-family: farhang;font-size: 18px">ورود|ثبت نام</h5>
+            <form method="POST">
+                  {% csrf_token %}
+
+              <div class="form-floating mb-3"style="text-align: right">
+
+                <label style="text-align: right;font-family: vazir">شماره ی تلفن</label>
+                          <br>
+                  <br>
+                           {{ form.mobile }}
+              </div>
+
+              <hr>
+
+              <div class="form-group">
+          <button class="btn btn-outline-info" type="submit"  style="font-family: farhang;font-size: 16px">
+            ثبت نام
+
+          </button>
+        </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<style>
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background: linear-gradient(80deg, #304FFE 50%, #EEEEEE 50%);
+
+}
+
+
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background-color: #ECEFF1
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+
+@media screen and (max-width: 991px) {
+    .card1 {
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 10px
+    }
+
+    .card2 {
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 0px
+    }
+}
+
+.card-img-left {
+  width: 45%;
+  /* Link to your background image using in the property below! */
+
+  background-size: cover;
+}
+
+</style>
+
+{% endblock content %}
