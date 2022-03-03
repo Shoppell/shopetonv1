@@ -25,7 +25,7 @@ class ShopCreateForm(forms.ModelForm):
 
     class Meta:
         model = myshop
-        exclude = ['products', 'owner', 'h_index', 'grade', 'stars', 'stars_left']
+        exclude = ['head_link', 'about', 'image_look', 'title_look', 'description_look', 'products', 'owner', 'h_index', 'grade', 'stars', 'stars_left', 'why_us1', 'why_us2', 'why_us3', 'image_banner1', 'image_banner2', 'image_banner3']
 
 
 class UserShop(forms.ModelForm):
@@ -39,7 +39,7 @@ class UpdateWishlist(forms.ModelForm):
 
     class Meta:
         model = wishlist
-        exclude = ['buyer', 'product', 'paid', 'time_add',' post_info','status']
+        exclude = ['buyer', 'product', 'paid', 'time_add', ' post_info', 'status']
 
 
 class Wishlist(forms.ModelForm):

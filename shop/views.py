@@ -148,7 +148,6 @@ def update_shop(request):
 
 @login_required(login_url='register')
 def add_shop(request):
-
     if request.method == 'POST':
         form1 = ShopCreateForm(request.POST, request.FILES)
         user = request.user
@@ -161,10 +160,9 @@ def add_shop(request):
             user.owner = True
             user.save()
             return redirect('home')
-
     else:
         form1 = ShopCreateForm()
-    print(form1.errors)
+        print(form1.errors)
     context = {
         'form': form1,
     }
