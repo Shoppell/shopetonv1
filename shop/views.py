@@ -355,7 +355,7 @@ def cart(request):
         }
     else:
         wishlist_all = wishlist.objects.filter(buyer=request.user).filter(paid=False)
-        all, post, op = 0
+        all, post, op = 0, 0, 0
         for i in wishlist_all:
             wishlist_p += 1
             all += i.product.last_price()
@@ -366,7 +366,6 @@ def cart(request):
         off = (int)(off/100)
         off = (off / 100)
         op = int(op)
-
         context = {
             'off': f"{off:,}",
             'all_all': f"{all_all:,}",

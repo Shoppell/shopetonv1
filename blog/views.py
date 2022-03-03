@@ -5,7 +5,6 @@ from blog.models import ticket, SupCategory, Category
 from user_auth.models import User
 from django.contrib.auth.decorators import login_required
 import logging
-from django.urls import reverse
 from azbankgateways import bankfactories, models as bank_models, default_settings as settings
 from azbankgateways.exceptions import AZBankGatewaysException
 from django.http import HttpResponse, Http404

@@ -1,12 +1,3 @@
-/******************************************************************
-  Template Name: Violet 
-  Description: Violet ecommerce Html Template
-  Author: Colorlib
-  Author URI: https://colorlib.com/
-  Version: 1.0
-  Created: Colorlib
-******************************************************************/
-
 /*------------------------------------------------------------------
 [Table of contents]
 
@@ -31,155 +22,6 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-@font-face {
-    font-family: 'iranyekan';
-    src: url('../fonts/iranyekan.woff2') format('woff2'),
-         url('../fonts/iranyekan.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: 'yekanb';
-    src:
-         url('../fonts/yekan-font/yekanv.woff2') format('woff2'),
-         url('../fonts/yekan-font/yekanb.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'mitra';
-    src: url('../fonts/BMitra.eot');
-    src: url('../fonts/BMitra.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BMitra.woff') format('woff'),
-         url('../fonts/BMitra.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'mitrabold';
-    src: url('../fonts/BMitraBold.eot');
-    src: url('../fonts/BMitraBold.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BMitraBold.woff') format('woff'),
-         url('../fonts/BMitraBold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'roya';
-    src: url('../fonts/BRoya.eot');
-    src: url('../fonts/BRoya.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BRoya.woff') format('woff'),
-         url('../fonts/BRoya.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'tabasom';
-    src: url('../fonts/BTabassom.eot');
-    src: url('../fonts/BTabassom.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BTabassom.woff') format('woff'),
-         url('../fonts/BTabassom.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-@font-face {
-    font-family: 'titr1';
-    src: url('../fonts/BTitr.eot');
-    src: url('../fonts/BTitr.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BTitr.woff') format('woff'),
-         url('../fonts/BTitr.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'titr2';
-    src: url('../fonts/BTitrTGE.eot');
-    src: url('../fonts/BTitrTGE.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BTitrTGE.woff') format('woff'),
-         url('../fonts/BTitrTGE.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-
-@font-face {
-	font-family: 'yekan';
-	src: url('../fonts/Yekan.eot?-wwn5ej');
-	src: url('../fonts/Yekan.eot?#iefix-wwn5ej') format('embedded-opentype'),
-	url('../fonts/Yekan.woff?-wwn5ej') format('woff'),
-	url('../fonts/Yekan.ttf?-wwn5ej') format('truetype'),
-	url('../fonts/Yekan.svg?-wwn5ej#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-
-@font-face {
-    font-family: 'traffic';
-    src: url('../fonts/BTraffic.eot');
-    src: url('../fonts/BTraffic.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BTraffic.woff') format('woff'),
-         url('../fonts/BTraffic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
- @font-face {
-    font-family: 'nasim';
-    src: url('../fonts/BNasim.eot');
-    src: url('../fonts/BNasim.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/BNasim.woff') format('woff'),
-         url('../fonts/BNasim.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-
-@font-face{
-    font-family:'shabnam';
-    src: url('../fonts/shabnam-font-v2.4.0/Shabnam.eot') format('eot'),
-         url('../fonts/shabnam-font-v2.4.0/Shabnam.ttf') format('truetype'),
-         url('../fonts/shabnam-font-v2.4.0/Shabnam.woff2') format('woff2');
-
-  }
-  @font-face{
-    font-family:'tanha';
-    src: url('../fonts/tanha-font-v0.9/Tanha.ttf') format('truetype'),
-         url('../fonts/tanha-font-v0.9/Tanha.woff2') format('woff2');
-  }
-  @font-face{
-    font-family:'samim';
-    src: url('../fonts/samim-font-v2.0.1/Samim.eot') format('eot'),
-         url('../fonts/samim-font-v2.0.1/Samim.woff2') format('woff2'),
-         url('../fonts/samim-font-v2.0.1/Samim.woff') format('woff');
-  }
-
-
-@font-face{
-    font-family:'sahel';
-    src: url('../fonts/sahel-font-v1.0.0-alpha14/Sahel.eot') format('eot'),
-         url('../fonts/sahel-font-v1.0.0-alpha14/Sahel.ttf') format('truetype'),
-         url('../fonts/sahel-font-v1.0.0-alpha14/Sahel.woff2') format('woff2');
-
-  }
-  @font-face{
-    font-family:'parastoo';
-    src: url('../fonts/parastoo-font-v1.0.0-alpha5/web/Parastoo.ttf') format('truetype'),
-         url('../fonts/parastoo-font-v1.0.0-alpha5/web/Parastoo.woff2') format('woff2');
-  }
-
-
-
 @font-face{
     font-family:'vazir';
     src: url('../fonts/Vazir.eot') format('eot'),
@@ -187,16 +29,12 @@
          url('../fonts/Vazir.woff') format('woff2');
 
   }
-  @font-face{
-    font-family:'segoe';
-    src: url('../fonts/Segoe-UI.ttf') format('truetype'),
-         url('../fonts/Segoe-UI.woff') format('woff2');
-  }
+
   @font-face{
     font-family:'farhang';
     src: url('../fonts/Farhang-Black.eot') format('eot'),
          url('../fonts/Farhang-Black.woff2') format('woff2'),
-         url('../fonts/Farhang-Bold.woff') format('woff');
+         url('../fonts/Farhang-Black.woff') format('woff');
   }
 
 

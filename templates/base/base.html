@@ -14,9 +14,10 @@
      <title>Shopeton | {{ shop.title }}</title>
            
     {% else %}
-            <title>شاپتون | Shopeton</title>
+            <title>شاپتون</title>
     {% endif %}
 
+    <link rel="icon" type="image/x-icon" href="{% static 'img/spark.png' %}">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
@@ -48,7 +49,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm fixed-top">
-    <a href="{% url 'home' %}"><img style="width: 130px;height: 40px" src="{% static 'img/logo2.png' %}" alt=""></a>
+    <a href="{% url 'home' %}"><img style="width: 70px;height: 70px" src="{% static 'img/logo.jpg' %}" alt=""></a>
     
   <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
           <span class="navbar-toggler-icon"></span>
