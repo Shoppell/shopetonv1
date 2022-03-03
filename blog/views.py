@@ -219,7 +219,7 @@ def my_tickets(request):
     return render(request, 'blog/my_tickets.html', context)
 
 
-def one_product(pk):
+def one_product(request, pk):
     product = Product.objects.get(pk=pk)
     shop = myshop.objects.get(products=product)
 

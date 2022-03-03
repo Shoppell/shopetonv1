@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
-from .models import myshop
 from blog.forms import ShopComment, CommentForm
 from shop.forms import Updateshop, ShopCreateForm, ProductCreateForm, Updateproduct, Wishlist, wishliststatus, postform
-from .models import myshop, Product, wishlist, Order, postinfo
+from .models import myshop, Product, wishlist, postinfo
 from blog.models import SupCategory, Category, Comment, Comment_shop
 from user_auth.models import User
 from django.utils import timezone
@@ -59,43 +58,25 @@ def all_products(request, slug):
 
 
 def shop(request, slug):
-    if request.user.is_anonymous:
-        login = False
-    else:
-        login = True
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-        else:
-            owner = False
-
-
     shop = myshop.objects.get(slug=slug)
-
     comments = Comment_shop.objects.filter(shop=shop).order_by('-date_posted')
-    score =0
-    for i in range(0,len(comments)):
+    score = 0
+    for i in range(0, len(comments)):
         score += int(comments[i].grade)
-    if len(comments)!=0:
+    if len(comments) != 0:
         final_score = score/len(comments)
     else:
         final_score = 0
-
     shop.grade = final_score
     final_score = math.ceil(final_score)
     shop.stars = final_score*'1'
     shop.stars_left = (5-final_score) * '1'
     shop.save()
-
     products_shop = shop.products.filter().order_by('-date')[0:8]
     rare = shop.products.filter(rare=True)[0:3]
     off = shop.products.filter(most_off=True)[0:3]
     hot = shop.products.filter(hot=True)[0:3]
-
-
-
-    shop_m = [shop,]
+    shop_m = [shop]
     if request.method == 'POST':
         form = ShopComment(request.POST)
         if form.is_valid():
@@ -125,102 +106,44 @@ def shop(request, slug):
             add_comment = False
         else:
             add_comment = True
-
-
-
     comments = comments[0:10]
-
-    if request.user.is_anonymous:
-        context = {
-            'products': products_shop,
-            'login': login,
-            'add_comment': add_comment,
-            'comments': comments,
-            'shop': shop,
-            'form': form,
-            'rare':rare,
-            'hot':hot,
-            'off':off,
-                       'scategory':SupCategory.objects.all(),
-        }
-    else:
-        if request.user.owner:
-            context = {
-                  'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                'products': products_shop,
-                'login': login,
-                'my_shop': my_shop,
-                'owner': owner,
-                'add_comment': add_comment,
-                'comments': comments,
-                'shop': shop,
-                'form': form,
-                  'rare':rare,
-                    'hot':hot,
-                    'off':off,
-                               'scategory':SupCategory.objects.all(),
-            }
-        else:
-            context = {
-                       'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                'products': products_shop,
-                'login': login,
-                'add_comment': add_comment,
-                'comments': comments,
-                'shop': shop,
-                'form': form,
-                  'rare':rare,
-                             'scategory':SupCategory.objects.all(),
-            'hot':hot,
-            'off':off,
-            }
-
-
-
-
+    context = {
+        'products': products_shop,
+        'add_comment': add_comment,
+        'comments': comments,
+        'shop': shop,
+        'form': form,
+        'rare': rare,
+        'hot': hot,
+        'off': off,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
     return render(request, 'shop/shop.html', context)
 
 
 @login_required
 @just_owner
 def update_shop(request):
-    if request.user.is_anonymous:
-        login = False
-    else:
-        login = True
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-        else:
-            owner = False
-            return redirect('add_shop')
-
     me = User.objects.get(mobile=request.user.mobile)
     my_shop = me.shop
     shop = my_shop
-
-    if request.user == request.user:
-        if request.method == 'POST':
-            form = Updateshop(request.POST, request.FILES, instance=shop)
-            if form.is_valid():
-                # os.remove(os.path.join('', image_path))
-                obj = form.save(commit=False)
-                obj.save()
-                return redirect('shop', shop.slug)
-        else:
-            form = Updateshop(instance=shop)
-
-        context = {
-            'scategory': SupCategory.objects.all(),
-            'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-            'login': login,
+    if request.method == 'POST':
+        form = Updateshop(request.POST, request.FILES, instance=shop)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            return redirect('shop', shop.slug)
+    else:
+        form = Updateshop(instance=shop)
+    context = {
             'my_shop': my_shop,
-            'owner': owner,
             'shop': shop,
             'form': form,
-        }
-        return render(request, 'shop/update_shop.html', context)
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
+    return render(request, 'shop/update_shop.html', context)
 
 
 @login_required
@@ -253,151 +176,71 @@ def add_shop(request):
 @login_required
 @just_owner
 def update_product(request, pk):
-    if request.user.is_anonymous:
-        login = False
-    else:
-        login = True
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-        else:
-            owner = False
-            return redirect('add_shop')
-
     me = User.objects.get(mobile=request.user.mobile)
     my_shop = me.shop
     shop = my_shop
     products = shop.products.all()
-    if request.user.owner:
-        is_owner = True
-    else:
-        is_owner = False
-
     product = Product.objects.get(pk=pk)
-
     if request.method == 'POST':
-
         form = Updateproduct(request.POST, request.FILES, instance=product)
-
         if form.is_valid():
-                # os.remove(os.path.join('', image_path))
             form.save()
             return redirect('shop', shop.slug)
-
     else:
         form = Updateproduct(instance=product)
 
     context = {
-            'scategory': SupCategory.objects.all(),
-            'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
             'shop': shop,
             'form': form,
-            'is_owner': is_owner,
             'products': products,
-            'login': login,
             'my_shop': my_shop,
-            'owner': owner,
     }
-
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
     return render(request, 'shop/update_product.html', context)
 
 
 @login_required
 @just_owner
 def add_product(request):
-    if request.user.is_anonymous:
-        login = False
-    else:
-        login = True
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-        else:
-            owner = False
-            return redirect('add_shop')
-
     if request.method == 'POST':
-
         form = ProductCreateForm(request.POST, request.FILES)
-
         if form.is_valid():
-            # os.remove(os.path.join('', image_path))
             obj = form.save(commit=False)
             obj.user = request.user
             obj.save()
-            # shop_owner = myshop.objects.get(owner=request.user)
             request.user.shop.products.add(obj)
             return redirect('shop', request.user.shop.slug)
     else:
         form = ProductCreateForm()
-
     context = {
-        'scategory': SupCategory.objects.all(),
-        'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
         'form': form,
         'shop': request.user.shop,
-        'login': login,
-        'my_shop': my_shop,
-        'owner': owner,
     }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
     return render(request, 'shop/add_product.html', context)
 
 
 def product_details(request, slug, pk):
+    my_shop = request.user.shop
     shop = myshop.objects.get(slug=slug)
     own = False
-    if request.user.is_anonymous:
-        login = False
-        wish_op = 0
-    else:
-        login = True
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-
-            if my_shop.pk == shop.pk:
-                own = True
-            wish_op = wishlist.objects.filter(buyer=request.user).__len__()
-        else:
-            owner = False
-            wish_op = wishlist.objects.filter(buyer=request.user).__len__()
-
-
-
-    # if request.user == shop.owner:
-    #     is_owner = True
-    # else:
-    #     is_owner = False
-
     product_details = shop.products.get(pk=pk)
     comments = Comment.objects.filter(products=product_details).order_by('-date_posted')
-
-
-
     score =0
-    for i in range(0,len(comments)):
+    for i in range(0, len(comments)):
         score += int(comments[i].grade)
-    if len(comments)!=0:
+    if len(comments) != 0:
         final_score = score/len(comments)
     else:
         final_score = 0
-
     product_details.star_rate = final_score
     final_score = math.ceil(final_score)
     product_details.stars = final_score*'1'
     product_details.stars_left = (5-final_score) * '1'
     product_details.save()
-
-    data = {
-        'fields1': request.user,
-        'fields5': product_details,
-
-
-    }
-    products = [product_details,]
+    products = [product_details]
     if request.method == 'POST':
         if request.POST['action'] == 'comment':
             form1 = CommentForm(request.POST)
@@ -412,7 +255,6 @@ def product_details(request, slug, pk):
                 obj.save()
                 obj.stars_left = (5-obj.grade) * '1'
                 obj.save()
-
                 return redirect('product-details', slug,pk)
         elif request.POST['action'] == 'add_cart':
             form2 = Wishlist(request.POST)
@@ -424,32 +266,22 @@ def product_details(request, slug, pk):
                 obj.product = product_details
                 obj.save()
                 return redirect('product-details', slug, pk)
-
         elif request.POST['action'] == 'change':
             form1 = CommentForm()
             form2 = Wishlist()
             return redirect('update_product', pk)
-
         elif request.POST['action'] == 'delete':
             form1 = CommentForm()
             form2 = Wishlist()
             if my_shop.pk == shop.pk:
                 my_shop.products.get(pk=pk).delete()
                 return redirect('shop', slug)
-
     else:
         form1 = CommentForm()
         form2 = Wishlist()
-
-
-
-
-
     score_list = [None] * math.ceil(final_score)
     left_list = [None] * (5-math.ceil(final_score))
     final_score = math.ceil(final_score)
-
-
     ctg = Category.objects.get(name=product_details.category)
     related_products = Product.objects.filter(category=ctg)[0:4]
 
@@ -475,41 +307,9 @@ def product_details(request, slug, pk):
         num_photos+=1
     if product_details.photo_6:
         num_photos+=1
-
     any = True
-    if request.user.is_anonymous:
-        any = False
-
-    if request.user.is_anonymous:
-        context = {
-            'wish': wish_op,
-           'scategory':SupCategory.objects.all(),
-            'login': login,
-            'any': any,
-            'now': timezone.now,
-            'num_photos': num_photos,
-            'product': product_details,
-            'related_products': related_products,
-            'comments': comments,
-            'form': form1,
-            'form2': form2,
-            'final_score': final_score,
-            'score_list': score_list,
-            'left_list': left_list,
-            # 'is_owner': is_owner,
-            'shop': shop,
-            'add_comment': add_comment,
-        }
-    else:
-        if request.user.owner:
-            context = {
-                           'scategory':SupCategory.objects.all(),
-           'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
+    context = {
                 'own': own,
-                'my_products': my_shop.products.all(),
-                'login': login,
-                'my_shop': my_shop,
-                'owner': owner,
                 'any': any,
                 'now': timezone.now,
                 'num_photos': num_photos,
@@ -521,56 +321,25 @@ def product_details(request, slug, pk):
                 'final_score': final_score,
                 'score_list': score_list,
                 'left_list': left_list,
-                # 'is_owner': is_owner,
                 'shop': shop,
                 'add_comment': add_comment,
-            }
-        else:
-            context = {
-                           'scategory':SupCategory.objects.all(),
-                      'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                'own': own,
-                'login': login,
-                'owner': owner,
-                'any': any,
-                'now': timezone.now,
-                'num_photos': num_photos,
-                'product': product_details,
-                'related_products': related_products,
-                'comments': comments,
-                'form': form1,
-                'form2': form2,
-                'final_score': final_score,
-                'score_list': score_list,
-                'left_list': left_list,
-                # 'is_owner': is_owner,
-                'shop': shop,
-                'add_comment': add_comment,
-            }
-
-
-
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
 
     return render(request, 'shop/product-details.html', context)
 
 
 @login_required
 def cart(request):
-    if request.user.is_anonymous:
-        login = False
-    else:
-        login = True
+    if request.user.is_authenticated:
         if request.user.owner:
             owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
         else:
             owner = False
-
     wishlist_p = 0
     shop = myshop.objects.all()
-
-    if request.method=="POST":
+    if request.method == "POST":
         pk = request.POST['action']
         wishlist_o = wishlist.objects.filter(pk=pk)
         wishlist_o.delete()
@@ -586,15 +355,11 @@ def cart(request):
         }
     else:
         wishlist_all = wishlist.objects.filter(buyer=request.user).filter(paid=False)
-        all = 0
-        post = 0
-        op = 0
+        all, post, op = 0
         for i in wishlist_all:
             wishlist_p += 1
             all += i.product.last_price()
             op += i.product.price
-
-        shop_owner = request.user.shop
         all_all = int(all+post)
         off = op-all
         off = off*10000
@@ -612,205 +377,53 @@ def cart(request):
         }
     context_sample = all_views_navbar_utils(request)
     context.update(context_sample)
-
     return render(request, 'blog/cart.html', context)
 
 
 @login_required
 def bought(request):
-
-
     wishlist_all = wishlist.objects.filter(buyer=request.user).filter(paid=True).order_by('-time_add')
-
-    if request.user.is_anonymous:
-        is_owner = ""
-        context = {
-            'scategory':SupCategory.objects.all(),
-            'wish':0,
-            'shop': shop,
-            'is_owner': is_owner,
-            'buy': wishlist_all,
-        }
-    else:
-       
-        if request.user.is_anonymous:
-            login = False
-
-        else:
-            login = True
-            if request.user.owner:
-                owner = True
-                me = User.objects.get(mobile=request.user.mobile)
-                my_shop = me.shop
-                context = {
-                    'scategory':SupCategory.objects.all(),
-                    'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                    'login': login,
-                    'my_shop': my_shop,
-                    'owner': owner,
-                    'buy': wishlist_all,
-                }
-            else:
-                owner = False
-                context = {
-                    'scategory': SupCategory.objects.all(),
-                    'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                    'login': login,
-                    'owner': owner,
-                    'buy': wishlist_all,
-                }
-
-
+    context = {
+        'buy': wishlist_all,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
     return render(request, 'blog/bought.html', context)
     
     
 @login_required
 @just_owner
 def sold(request):
-    if request.user.is_anonymous:
-        login = False
-    else:
-        login = True
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-        else:
-            owner = False
-
- 
+    my_shop = request.user.shop
     wish_sold = wishlist.objects.filter(shop=my_shop).filter(paid=True).order_by('-time_add')
-
-    if request.user.is_anonymous:
-        is_owner = ""
-        context = {
-            'scategory':SupCategory.objects.all(),
-                    'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-            'shop': shop,
-            'is_owner': is_owner,
-            'sold': wish_sold,
-     
-        }
-    else:
-       
-  
-        
-        shop_owner = request.user.shop
-
-
-        if request.user.is_anonymous:
-            login = False
-
-        else:
-            login = True
-            if request.user.owner:
-                owner = True
-                me = User.objects.get(mobile=request.user.mobile)
-                my_shop = me.shop
-                context = {
-           'scategory':SupCategory.objects.all(),
-             
-                   'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                    'login': login,
-                    'my_shop': my_shop,
-                    'owner': owner,
-                    'sold': wish_sold,
-
-                }
-            else:
-                owner = False
-                context = {
-           'scategory':SupCategory.objects.all(),
-                       'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                    'login': login,
-                    'owner': owner,
-                    'sold': wish_sold,
-  
-                }
-
-
+    context = {
+        'sold': wish_sold,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
     return render(request, 'blog/sold.html', context)
 
 
 @login_required
 @just_owner
 def sold_detail(request, pk):
-    if request.user.is_anonymous:
-        login = False
-    else:
-        login = True
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-        else:
-            owner = False
-
- 
+    my_shop = request.user.shop
     wish_sold = wishlist.objects.filter(shop=my_shop)
     wish_sold = wish_sold.get(pk=pk)
     if request.method == 'POST':
-        
         form = wishliststatus(request.POST, instance=wish_sold)
-
         if form.is_valid():
             obj = form.save(commit=False)
             obj.save()
             return redirect('sold-detail', pk)
     else:
         form = wishliststatus(instance=wish_sold)
-         
-        
-    if request.user.is_anonymous:
-        is_owner = ""
-        context = {
-            'scategory':SupCategory.objects.all(),
-                    'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-            'shop': shop,
-            'is_owner': is_owner,
-            'sold': wish_sold,
-     
-        }
-    else:
-       
-  
-        
-        shop_owner = request.user.shop
-
-
-        if request.user.is_anonymous:
-            login = False
-
-        else:
-            login = True
-            if request.user.owner:
-                owner = True
-                me = User.objects.get(mobile=request.user.mobile)
-                my_shop = me.shop
-                context = {
-           'scategory':SupCategory.objects.all(),
-             
-                   'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                    'login': login,
-                    'my_shop': my_shop,
-                    'owner': owner,
-                    'sold': wish_sold,
-                    'form':form,
-
-                }
-            else:
-                owner = False
-                context = {
-           'scategory':SupCategory.objects.all(),
-                       'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                    'login': login,
-                    'owner': owner,
-                    'sold': wish_sold,
-                      'form':form,
-  
-                }
-
-
+    context = {
+        'sold': wish_sold,
+        'form': form,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
     return render(request, 'blog/sold_detail.html', context)
     
     
@@ -819,7 +432,7 @@ def post_info(request):
     wish_me = wishlist.objects.filter(buyer=request.user).filter(paid=False)
     post_m = postinfo.objects.filter(user=request.user).order_by('-time_add').first()
     if request.method == 'POST':
-        form = postform(request.POST,instance=post_m)
+        form = postform(request.POST, instance=post_m)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.user = request.user
@@ -827,51 +440,14 @@ def post_info(request):
             for x in wish_me:
                 x.post_info = obj
                 x.save()
-                
-            
             return redirect('go-to-shop')
     else:
         form = postform(instance=post_m)
-
-
-    if request.user.is_anonymous:
-        login = False
-        wish_op = 0
-
-        context = {
-                     'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-            'login': login,
- 'scategory':SupCategory.objects.all(),
-            'form': form,
-        }
-    else:
-        login = True
-      
-        if request.user.owner:
-            owner = True
-            me = User.objects.get(mobile=request.user.mobile)
-            my_shop = me.shop
-
-            context = {
-                        'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                'login': login,
-                'my_shop': my_shop,
-                'owner': owner,
-                'form': form,
-                 'scategory':SupCategory.objects.all(),
-            }
-
-        else:
-            owner = False
-
-            context = {
-                         'wish': wishlist.objects.filter(buyer=request.user).filter(paid=False).__len__(),
-                'login': login,
- 'scategory':SupCategory.objects.all(),
-                'owner': owner,
-                'form': form,
-            }
-
+    context = {
+        'form': form,
+    }
+    context_sample = all_views_navbar_utils(request)
+    context.update(context_sample)
     return render(request, 'blog/post_info.html', context)
 
 
