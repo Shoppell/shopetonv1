@@ -10,12 +10,26 @@ choices_rate = (
     (4, 4),
     (5, 5),
 )
+from PIL import Image
+
+
+def resize(nameOfFile):
+    img = Image.open(nameOfFile)
+    size = (200, int(img.size[1] * 200 / img.size[0]))
+    img.resize(size, Image.ANTIALIAS).save(nameOfFile + '_resized' + nameOfFile[-4:])
+    img.save(nameOfFile)
 
 
 class Category(models.Model):
     name = models.CharField(max_length=30, verbose_name="اسم دسته")
     photo = models.ImageField(upload_to='products_category', verbose_name='عکس دسته')
     date = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        for x in [self.photo, ]:
+            if x:
+                super().save(*args, **kwargs)
+                resize(x.path)
 
     def __str__(self):
         return self.name
@@ -27,6 +41,12 @@ class SupCategory(models.Model):
     categories = models.ManyToManyField(Category)
     date = models.DateTimeField(auto_now_add=True)
     svg = models.TextField()
+
+    def save(self, *args, **kwargs):
+        for x in [self.photo, ]:
+            if x:
+                super().save(*args, **kwargs)
+                resize(x.path)
 
     def __str__(self):
         return self.name

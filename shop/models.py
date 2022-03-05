@@ -15,29 +15,42 @@ choices_rate = (
     (4, 4),
     (5, 5),
 )
+from PIL import Image
+
+
+def resize(nameOfFile):
+    img = Image.open(nameOfFile)
+    size = (200, int(img.size[1] * 200 / img.size[0]))
+    img.resize(size, Image.ANTIALIAS).save(nameOfFile + '_resized' + nameOfFile[-4:])
+    img.save(nameOfFile)
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=100,verbose_name='نام کالا')
-    photo = models.ImageField(upload_to='products',verbose_name='عکس اول کالا')
-    photo_2 = models.ImageField(upload_to='products',blank=True,verbose_name='عکس دوم کالا')
-    photo_3 = models.ImageField(upload_to='products',blank=True,verbose_name='عکس سوم کالا')
-    photo_4 = models.ImageField(upload_to='products',blank=True,verbose_name='عکس چهارم کالا')
-    photo_5 = models.ImageField(upload_to='products',blank=True,verbose_name='عکس پنجم کالا')
-    photo_6 = models.ImageField(upload_to='products',blank=True,verbose_name='عکس ششم کالا')
+    name = models.CharField(max_length=100, verbose_name='نام کالا')
+    photo = models.ImageField(upload_to='products', verbose_name='عکس اول کالا')
+    photo_2 = models.ImageField(upload_to='products', blank=True, verbose_name='عکس دوم کالا')
+    photo_3 = models.ImageField(upload_to='products', blank=True, verbose_name='عکس سوم کالا')
+    photo_4 = models.ImageField(upload_to='products', blank=True, verbose_name='عکس چهارم کالا')
+    photo_5 = models.ImageField(upload_to='products', blank=True, verbose_name='عکس پنجم کالا')
+    photo_6 = models.ImageField(upload_to='products', blank=True, verbose_name='عکس ششم کالا')
     price = models.IntegerField(verbose_name='قیمت کالا| بدون تخفیف')
     off = models.PositiveIntegerField(verbose_name='تخفیف')
     details = models.TextField(verbose_name='درباره ی کالا')
     category = models.ForeignKey(to='blog.Category', on_delete=models.CASCADE, verbose_name='دسته ی کالا')
-    date = models.DateTimeField(auto_now_add=True,verbose_name='زمان ساخت کالا')
-    hot = models.BooleanField(default=False,verbose_name='کالا داغ است؟')
-    most_off = models.BooleanField(default=False,verbose_name='کالا پر تخفیف است؟')
+    date = models.DateTimeField(auto_now_add=True, verbose_name='زمان ساخت کالا')
+    hot = models.BooleanField(default=False, verbose_name='کالا داغ است؟')
+    most_off = models.BooleanField(default=False, verbose_name='کالا پر تخفیف است؟')
     rare = models.BooleanField(default=False, verbose_name='کالا بسیار ویژه است؟')
-    in_stock = models.BooleanField(default=True,verbose_name='کالا موجود است؟')
-    star_rate = models.PositiveIntegerField(blank=True,default=0)
+    in_stock = models.BooleanField(default=True, verbose_name='کالا موجود است؟')
+    star_rate = models.PositiveIntegerField(blank=True, default=0)
     stars = models.CharField(default=0, max_length=5)
     stars_left = models.CharField(blank=True, max_length=5)
 
+    def save(self, *args, **kwargs):
+        for x in [self.photo, self.photo_2, self.photo_3, self.photo_4, self.photo_5, self.photo_6]:
+            if x:
+                super().save(*args, **kwargs)
+                resize(x.path)
 
     def last_price(self):
         return (100-self.off)*self.price/100
@@ -84,6 +97,12 @@ class myshop(models.Model):
     seller_info = models.CharField(max_length=150)
     about = models.TextField(blank=True, verbose_name='درباره ی فروشگاه')
 
+    def save(self, *args, **kwargs):
+        for x in [self.image_head1, self.image_banner1, self.image_banner2, self.image_banner3, self.image_look]:
+            if x:
+                super().save(*args, **kwargs)
+                resize(x.path)
+
     def __str__(self):
         return self.title
 
@@ -109,13 +128,3 @@ class wishlist(models.Model):
 
     def __str__(self):
         return self.buyer.mobile+str(self.shop)
-
-
-class Order(models.Model):
-    grade = models.PositiveIntegerField(choices=choices_rate)
-    owner = models.OneToOneField(to='user_auth.User', on_delete=models.CASCADE)
-    paid = models.BooleanField(default=False, verbose_name='پرداخت شده؟')
-    date = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return str(self.owner)
