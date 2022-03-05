@@ -15,10 +15,10 @@ def verify(request):
         user = User.objects.get(mobile=mobile)
         if request.method == "POST":
             if not helper.check_otp_expiration(user.mobile):
-                return HttpResponseRedirect(reverse('register_view'))
+                return HttpResponseRedirect(reverse('register'))
 
             if user.otp != int(request.POST.get('otp')):
-                return HttpResponseRedirect(reverse('register_view'))
+                return HttpResponseRedirect(reverse('register'))
             user.is_active = True
             user.save()
             login(request, user)
