@@ -1,22 +1,19 @@
-import requests
 from random import randint
 from .models import User
-import datetime
 from django.utils.timezone import timedelta
 from django.utils import timezone
 
 
 def send_otp(mobile, otp):
-    url = 'https://rest.payamak-panel.com/api/SendSMS/SendSMS'
-    myobj = {'username': '09930731973',
-             'password': 'D9HTC',
-             'to': mobile,
-             'from': '50004001731973',
-             'text': otp
-             }
-
-    x = requests.post(url, data=myobj)
-    print(x.text)
+    from melipayamak import Api
+    username = '09930731973'
+    password = 'D9HTC'
+    api = Api(username, password)
+    sms_rest = api.sms()
+    text = [otp, ]
+    to = mobile
+    bodyId = 77985
+    sms_rest.send_by_base_number(text, to, bodyId)
 
 
 def otp_generator():
@@ -28,7 +25,7 @@ def check_otp_expiration(mobile):
         user = User.objects.get(mobile=mobile)
         now = timezone.now()
         otp_time = user.otp_create_time
-        otp_after = otp_time + timedelta(seconds=30)
+        otp_after = otp_time + timedelta(seconds=180)
         if now > otp_after:
             return False
         return True
