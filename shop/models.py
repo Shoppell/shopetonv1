@@ -21,7 +21,7 @@ from PIL import Image
 def resize(nameOfFile):
     img = Image.open(nameOfFile)
     size = (200, int(img.size[1] * 200 / img.size[0]))
-    img.resize(size, Image.ANTIALIAS).save(nameOfFile + '_resized' + nameOfFile[-4:])
+    img.resize(size, Image.ANTIALIAS).save(nameOfFile)
     img.save(nameOfFile)
 
 

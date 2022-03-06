@@ -43,8 +43,11 @@ INSTALLED_APPS = [
     'blog',
     'shop',
 
-    
+
     'azbankgateways',
+
+
+    'django_cleanup.apps.CleanupConfig',
 
 
 ]
