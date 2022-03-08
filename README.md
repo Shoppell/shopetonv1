@@ -6,4 +6,5 @@ pip install -r requiremets.txt
 python manage.py runserver
 ### for changing database
 pyhton manage.py migrate
+###
 pyhton manage.py makemigrations
