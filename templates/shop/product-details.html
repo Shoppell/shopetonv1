@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="page-breadcrumb">
-                            <a class="active" href="{% url 'shop' shop.slug %}" style="font-size: 28px;font-family: farhang;text-align: right">
+                            <a class="active" href="{% url 'shop' shop.slug %}" style="font-size: 28px;font-family: yekan;text-align: right">
                                        <svg xmlns="http://www.w3.org/2000/svg" style="color:red" width="50" height="50" fill="currentColor" class="bi bi-shop-window" viewBox="0 0 16 16">
   <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
 </svg>
@@ -33,11 +33,11 @@
                      <br>
 
               <div class="form-group" style="text-align:left">
-                  <button class="btn btn-outline-warning" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value="change">
+                  <button class="btn btn-outline-warning" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="change">
                     تغییر این محصول
 
                   </button>
-                           <button class="btn btn-outline-danger" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value="delete">
+                           <button class="btn btn-outline-danger" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="delete">
                     حذف این محصول
 
                   </button>
@@ -109,11 +109,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product-content">
-                        <h2 style="font-family: vazir;text-align: right">
+                        <h2 style="font-family: yekan;text-align: right">
                             {{ product.name }}
-                            <svg xmlns="http://www.w3.org/2000/svg" style="color:green" width="50" height="50" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
-  <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
-</svg>
+ 
                             </h2>
                          <div class="rating" style="text-align:left">
                                  {% for i in score_list %}
@@ -172,7 +170,7 @@
 
                      {% if product.in_stock %}
                             <div class="col-md-12">
-                                <p style="color: #000;font-family: farhang;font-size: 16px;text-align: right">موجود
+                                <p style="color: #000;font-family: yekan;font-size: 16px;text-align: right">موجود
                                 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-check" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
@@ -183,7 +181,7 @@
 
                             {% else %}
                               	<div class="col-md-12">
-                                    <p style="color: #000;font-family: farhang;font-size: 16px;text-align: right"> 
+                                    <p style="color: #000;font-family: yekan;font-size: 16px;text-align: right"> 
                                     
                                 ناموجود
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-dash" viewBox="0 0 16 16">
@@ -204,7 +202,7 @@
                      <br>
          {% if product.in_stock %}
               <div class="form-group">
-                  <button class="btn btn-outline-success" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value="add_cart">
+                  <button class="btn btn-outline-success" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="add_cart">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -219,7 +217,7 @@
 
 
         {% else %}
-        <p style="font-size: 16px;text-align: center;color: red;font-family: farhang">برای اضافه کردن به علایق وارد شوید</p>
+        <p style="font-size: 16px;text-align: center;color: red;font-family: yekan">برای اضافه کردن به علایق وارد شوید</p>
 {% endif %}
 
                     </div>
@@ -229,20 +227,17 @@
     </section>
     <!-- Product Page Section End -->
 
+    {% if comments %}
 <section class="page-add" style="margin-bottom:0px">
         <div class="container">
-            <h2 style="font-family: farhang;text-align: center"><svg style="color:red" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-square-text" viewBox="0 0 16 16">
-  <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-  <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
-</svg>
-            نظرات شما
+            <h2 style="font-family: yekan;text-align: center">
+        نظرات
             </h2>
-
-                <hr>
+            <hr style="border: solid 2px #006466;">
         </div>
     </section>
 
-        {% if comments %}
+ 
 <div class="container mt-6 mb-5">
     <div class="d-flex justify-content-center row">
         <div class="d-flex flex-column col-md-12" style="color:black">
@@ -252,8 +247,7 @@
                 {% for comment in comments %}
                      <div class="commented-section mt-2">
                     <div class="d-flex flex-row align-items-center commented-user" style="color:black">
-                        <h3 class="mr-2" style="font-family: vazir;font-size: 19px">{{ comment.feedbacker }}</h3>
-                    <h4>|</h4>
+            
                         <span style="font-size: 16px;font-family: vazir;color:balck" class="mb-1 ml-2">{{ comment.jpublish }}</span>
                           <h4>|</h4>
                              {% for i in comment.stars %}
@@ -283,29 +277,28 @@
     </div>
 </div>
         {% else %}
-        <p style="font-family: vazir">
-            فعلا کامنتی نداریم :(
+        <p style="font-family: vazir;text-align: center;">
+            <!-- فعلا کامنتی نداریم :( -->
         </p>
         {% endif %}
 
 
 
 {% if add_comment %}
-    <div class="container contact-form">
-           <div class="contact-image" style="text-align: center">
-                <img style="width:100px;height:100px" src="{% static 'images/rocket.png' %}" alt="rocket_contact"/>
-            </div>
+    <div class="container contact-form" >
+       
               <form method="POST" style="direction: rtl;font-family: vazir">
         {% csrf_token %}
-                       <h3 style="font-family: farhang;text-align: center">ثبت نظر</h3>
-
-             {{ form|crispy }}
-
-                  <br>
-
-
+                       <h3 style="font-family: yekan;text-align: center">ثبت نظر</h3>
+                       <hr style="border: solid 2px #006466;">
+            <div style="text-align: right;">
+                {{ form.grade}}
+           
+                {{ form.content}}
+            </div>
+  
               <div class="form-group">
-                  <button class="btn btn-outline-info" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value="comment">
+                  <button class="btn btn-outline-success" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="comment">
                     ثبت نظر
 
                   </button>
@@ -321,60 +314,63 @@
     
     <section class="page-add" style="margin-bottom:0px">
         <div class="container">
- <h3 style="font-family: farhang;font-size: 32px">  <svg style="color:green" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-  <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
-</svg> محصولات مشابه</h3>
-<br>
-
-                        </div>
-               
-    <hr>
+            <h3 style="font-family: yekan;font-size: 32px;text-align: right;">محصولات مشابه</h3>
+            <hr style="border: solid 2px #006466;">
+        </div>
+     
         </div>
     </section>
     <!--background-image: url({% static 'img/purple.png' %});-->
    <div class="logo-section spad" style="padding-top: 0px;">
         <div class="logo-items owl-carousel">
+ 
+            {% for x in related_products %}
 
- {% for x in related_products %}
-                   
-                        
-                        <div class="card">
-                            
-                            <a class="img-card" href="{% url 'product-details' shop.slug x.pk %}">
-                            <img src="{{ x.photo.url }}" style="border-radius:15px" />
-                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.off }}%</div>
-                                     <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
-                                          {% for z in x.stars %}
-                                  <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                <div class="card">    
+                        <a class="img-card" href="{% url 'one_product' x.pk %}">
+                        <div id="yourContainer" style="height: 250px;">
+                        <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
+                        </div>
+                        <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.off }}%</div>
+                            <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
+                                {% for z in x.stars %}
+                        <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+
+            {% endfor %}
+
+
+                     {% for z in x.stars_left %}
+        <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
 </svg>
-                            {% endfor %}
+
+                        {% endfor %}
 
 
-                         {% for z in x.stars_left %}
-            <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-</svg>
-
-                            {% endfor %}
-
-
-   {% if x.verified %}
-                                            <svg style="color: cornflowerblue" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
-                                          <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
-                                        </svg>
+{% if x.verified %}
+                        <svg style="color: cornflowerblue" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                            <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+                        </svg>
 {% endif %}
 
-                                     </div>
-                          </a>
-                          <div class="product-text" style="text-align:center">
-                            <h6 style="font-family: vazir;text-align:center;">{{ x.name }}</h6>
+                                 </div>
+                      </a>
+            <div class="product-text" >
+      
+              <h6 style="font-family: vazir;text-align:right;margin-right: 5%;font-size: 20px;">{{ x.name }}</h6>
+              <del style="color: grey;font-family: vazir;text-align:left;margin-left: 5%;font-size: 14px;">{{ x.price_comma }}تومان</del>
+              <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
 
-                            <p style="color: green;font-family: vazir;text-align:center;font-size:18px;font-weight: 700;;margin-bottom:0px">{{ x.last_price|floatformat }}|تومان</p>
-                            <del style="color: grey;font-family: vazir;text-align:center">{{ x.price }}|تومان</del>
-                        </div>
-                         
-                        </div>
+            </div>
+                     
+        </div>
+         
+
+
+
+         
              
  {% endfor %}
                 
@@ -398,6 +394,7 @@
 
 /* Bottom left text */
 .bottom-left {
+  font-family: vazir;
   position: absolute;
   bottom: 8px;
   left: 16px;
@@ -405,6 +402,7 @@
 
 /* Top left text */
 .top-left {
+  font-family: vazir;
   position: absolute;
   top: 8px;
   left: 16px;
@@ -412,6 +410,7 @@
 
 /* Top right text */
 .top-right {
+  font-family: vazir;
   position: absolute;
   top: 8px;
   right: 16px;
@@ -419,6 +418,7 @@
 
 /* Bottom right text */
 .bottom-right {
+  font-family: vazir;
   position: absolute;
   bottom: 8px;
   right: 16px;

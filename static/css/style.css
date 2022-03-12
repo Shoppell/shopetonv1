@@ -31,10 +31,34 @@
   }
 
   @font-face{
-    font-family:'farhang';
-    src: url('../fonts/Farhang-Black.eot') format('eot'),
-         url('../fonts/Farhang-Black.woff2') format('woff2'),
-         url('../fonts/Farhang-Black.woff') format('woff');
+    font-family:'yekan';
+    src: url('../fonts/yekan-Black.eot') format('eot'),
+         url('../fonts/yekan-Black.woff2') format('woff2'),
+         url('../fonts/yekan-Black.woff') format('woff');
+  } 
+
+  @font-face{
+    font-family:'yekan';
+    src: url('../fonts/yekan/Yekan.eot') format('eot'),
+         url('../fonts/yekan/Yekan.woff') format('woff'),
+         url('../fonts/yekan/Yekan.ttf') format('ttf');
+  }
+
+
+
+  @font-face{
+    font-family:'shabnam';
+    src: url('../fonts/shabnam/Shabnam-Bold.eot') format('eot'),
+         url('../fonts/shabnam/Shabnam-Bold.woff2') format('woff2'),
+         url('../fonts/shabnam/Shabnam-Bold.woff') format('woff');
+  }
+
+
+  @font-face{
+    font-family:'iran-sens';
+    src: url('../fonts/Iranian-Sans/iranian-sans.eot') format('eot'),
+         url('../fonts/Iranian-Sans/iranian-sans.woff2') format('woff2'),
+         url('../fonts/Iranian-Sans/iranian-sans.woff') format('woff');
   }
 
 
@@ -44,7 +68,7 @@ body {
 	font-family: "Montserrat", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-smoothing: antialiased;
-	background: none;
+	background: whitesmoke;
 }
 
 h1,

@@ -12,7 +12,6 @@ choices_rate = (
 )
 from PIL import Image
 
-
 def resize(nameOfFile):
     img = Image.open(nameOfFile)
     size = (200, int(img.size[1] * 200 / img.size[0]))

@@ -9,7 +9,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 style="font-family: farhang;text-align: center">تیکت های شما</h3><hr>
+			<h3 style="font-family: yekan;text-align: center">تیکت های شما</h3><hr>
 		</div>
 
 		<div class="col-md-12">
@@ -18,7 +18,7 @@
                 {% for x in tickets %}
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingOne" style="background-color: #11d632;color: black;border-radius: 5px">
-						<h4 class="panel-title" style="text-align: center;font-family: farhang">
+						<h4 class="panel-title" style="text-align: center;font-family: yekan">
 						<a style="direction: rtl;margin: auto;color: white;text-align: center;font-family:vazir" class="collapsed " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{ x.pk }}" aria-expanded="true" aria-controls="collapseOne">
 						{{ x.title }}
 						</a>
@@ -27,7 +27,7 @@
 					</div>
                     {% if x.is_answerd %}
 					<div id="collapseOne{{ x.pk }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" style="font-family:vazir">
-                    <h3 style="font-family: farhang;text-align: right">سوال</h3>
+                    <h3 style="font-family: yekan;text-align: right">سوال</h3>
                     	<div class="panel-body" style="text-align: right;font-size: 16px">
 
                                    <p style="font-family: vazir;text-align: right;font-size: 16px">
@@ -36,7 +36,7 @@
 
 
 						</div>
-                        <h3 style="text-align: right;font-family: farhang">پاسخ</h3>
+                        <h3 style="text-align: right;font-family: yekan">پاسخ</h3>
 						<div class="panel-body" style="font-size: 16px;text-align: right">
 
                                    <p style="font-family:vazir;text-align: right;font-size: 16px">
@@ -48,13 +48,13 @@
 					</div>
                 {% else %}
                 <div id="collapseOne{{ x.pk }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                  <h3 style="font-family: farhang;text-align: right">سوال</h3>
+                  <h3 style="font-family: yekan;text-align: right">سوال</h3>
                     	<div class="panel-body" style="font-size: 16px;text-align: right;font-family:vazir">
                             <p style="font-family: vazir;text-align: right;font-size: 16px">
                                 {{ x.question|linebreaks }}
                             </p>
 						</div>
-                    <h3 style="text-align: right;font-family: farhang">پاسخ</h3>
+                    <h3 style="text-align: right;font-family: yekan">پاسخ</h3>
 						<div class="panel-body" style="text-align: right;font-size: 16px">
                             <p style="text-align: right;font-family: vazir;font-size: 16px">
                                 هنوز پاسخ داده نشده است :/
@@ -80,7 +80,7 @@
       <form method="POST" style="font-family: vazir">
         {% csrf_token %}
         <fieldset class="form-group" style="text-align: right;direction: rtl">
-          <legend class="border-bottom mb-4 font_farhang" style="color: #334756;text-align:right;font-family: farhang;font-size: 24px">
+          <legend class="border-bottom mb-4 font_yekan" style="color: #334756;text-align:right;font-family: yekan;font-size: 24px">
             ارسال تیکت
           </legend>
           {{ form|crispy }}
@@ -88,7 +88,7 @@
         </fieldset>
 
         <div class="form-group">
-          <button class="btn " type="submit"  style="font-family: farhang;font-size: 20px">
+          <button class="btn " type="submit"  style="font-family: yekan;font-size: 20px">
          ارسال
 
           </button>

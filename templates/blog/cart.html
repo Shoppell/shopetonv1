@@ -4,13 +4,11 @@
 {% block content %}
 
 
-
-
 	<main class="page">
 	 	<section class="shopping-cart dark" >
 	 		<div class="container">
 		        <div class="block-heading">
-		          <h3 style="font-family: titr1;">سبد خرید</h3>
+		          <h3 style="font-family: yekan;color: black;">سبد خرید</h3>
 		        </div>
 		        <div class="content">
 	 				<div class="row">
@@ -28,7 +26,7 @@
 						 						<div class="row">
 							 						<div class="col-md-5 product-name">
 							 							<div class="product-name">
-								 							<a href="#" style="font-family: farhang;font-size: 18px;color: black">{{ x.product.name }}</a>
+								 							<a href="#" style="font-family: yekan;font-size: 18px;color: black">{{ x.product.name }}</a>
 
 									 					</div>
 							 						</div>
@@ -42,7 +40,7 @@
                                                         <form method="POST" action="{% url 'cart' %}">
                                                     {% csrf_token %}
                                                         <div class="form-group" style="margin: auto">
-                                                            <button class="btn btn-outline-danger" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value={{ x.pk }}>
+                                                            <button class="btn btn-outline-danger" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value={{ x.pk }}>
                                                                 پاک کن
 
                                                             </button>
@@ -94,7 +92,7 @@
 
                            
                                                   <a href="{% url 'post-info' %}">
-                                                                 <button class="btn btn-outline-info" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value={{ x.pk }}>
+                                                                 <button class="btn btn-outline-info" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value={{ x.pk }}>
                                                                 ادامه
                                                             </button>
                                                   </a>
@@ -122,7 +120,7 @@
 <!--	 	<section class="shopping-cart dark" >-->
 <!--	 		<div class="container">-->
 <!--		        <div class="block-heading">-->
-<!--		          <h2 style="font-family: farhang;color: #3399FF"> -->
+<!--		          <h2 style="font-family: yekan;color: #3399FF"> -->
 <!--		          <svg xmlns="http://www.w3.org/2000/svg" style="color:#3399FF" width="50" height="50" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">-->
 <!--  <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>-->
 <!--  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>-->
@@ -143,7 +141,7 @@
 <!--                  <form method="POST" action="{% url 'cart' %}">-->
 <!--                                                    {% csrf_token %}-->
 <!--                                                        <div class="form-group" style="margin: auto">-->
-<!--                                                            <button class="btn btn-outline-danger" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value={{ x.pk }}>-->
+<!--                                                            <button class="btn btn-outline-danger" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value={{ x.pk }}>-->
                                                                 
 <!--   <svg style="color:red" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">-->
 <!--  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>-->
@@ -212,7 +210,7 @@
 
                            
 <!--                                                  <a href="{% url 'post-info' %}">-->
-<!--                                                                 <button class="btn btn-outline-info" type="submit"  style="font-family: farhang;font-size: 16px" name="action" value={{ x.pk }}>-->
+<!--                                                                 <button class="btn btn-outline-info" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value={{ x.pk }}>-->
 <!--                                                                ادامه-->
 <!--                                                            </button>-->
 <!--                                                  </a>-->
