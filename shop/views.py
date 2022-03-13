@@ -332,11 +332,6 @@ def product_details(request, slug, pk):
 
 @login_required(login_url='register')
 def cart(request):
-    if request.user.is_authenticated:
-        if request.user.owner:
-            owner = True
-        else:
-            owner = False
     wishlist_p = 0
     shop = myshop.objects.all()
     if request.method == "POST":
@@ -344,11 +339,7 @@ def cart(request):
         wishlist_o = wishlist.objects.filter(pk=pk)
         wishlist_o.delete()
     if request.user.is_anonymous:
-        is_owner = ""
         context = {
-            'shop': shop,
-            'is_owner': is_owner,
-            'wish_list': wishlist_p,
         }
     else:
         wishlist_all = wishlist.objects.filter(buyer=request.user).filter(paid=False)

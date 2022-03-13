@@ -3,7 +3,7 @@
 {% block content %}
     {% load static %}
 
-<section id="hero" class="d-flex align-items-center" style="margin-top: -100px">
+<section id="hero" class="d-flex align-items-center" >
 
     <div class="container">
       <div class="row">
@@ -41,7 +41,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services settings">
-                    <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
+                    <div class="icon"> <img src="{% static 'img/s1.png' %}"> </div>
                     <h4 style="font-family:yekan">
                         سایت شخصی سازی شده
                     </h4>
@@ -55,7 +55,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services speedup">
-                    <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
+                    <div class="icon"> <img src="{% static 'img/s2.png' %}"> </div>
                 <h4 style="font-family:yekan">
                         سریع</h4>
                         <hr>
@@ -68,7 +68,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services privacy">
-                    <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
+                    <div class="icon">  <img src="{% static 'img/s3.png' %}"></div>
                   <h4 style="font-family:yekan">
                         امنیت</h4>
                         <hr>
@@ -82,7 +82,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services backups">
-                    <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
+                    <div class="icon">  <img src="{% static 'img/s4.png' %}"> </div>
                <h4 style="font-family:yekan">
                         بدون کارمزد</h4>
                         <hr>
@@ -94,7 +94,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services ssl">
-                    <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
+                    <div class="icon">  <img src="{% static 'img/s5.png' %}"> </div>
                  <h4 style="font-family:yekan">
                         پشتیبانی </h4>
                         <hr>
@@ -106,7 +106,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services database">
-                    <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
+                    <div class="icon">  <img src="{% static 'img/s6.png' %}"> </div>
                            <h4 style="font-family:yekan">
                         اضافه کردن کالا </h4>
                         <hr>
@@ -142,7 +142,7 @@
     <section class="page-add" style="margin-bottom: 0px;">
         <div class="container">
             <h3 style="font-family: yekan;text-align: right">
-              محصولات    
+          کالا ها  
             </h3>
         <hr style="border: solid 2px #006466;">
         </div>
@@ -153,19 +153,18 @@
 
  {% for x in all_product %}
                    
-                        
-                        <div class="card">
+               <div class="card">
                             
-                            <a class="img-card" href="{% url 'one_product' x.pk %}">
-                                  <div id="yourContainer">
-                            <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
-                            </div>
+                 <a class="img-card" href="{% url 'one_product' x.pk %}">
+                  <div id="yourContainer">
+                  <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
+                    </div>
                                 <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.persian_off }}%</div>
                                      <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
                                           {% for z in x.stars %}
                                   <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-</svg>
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                  </svg>
                             {% endfor %}
 
 
@@ -640,12 +639,11 @@
     </div>
             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;" >
                     <div class="card-header p-0 border-0" id="heading-240">
-                        <button class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-240" aria-expanded="false" aria-controls="#collapse-240">
-                            
-                            
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-</svg>
+                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-240" aria-expanded="false" aria-controls="#collapse-240">
+
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                      </svg>
 واریز پول به چه صورت است؟                       </button>
                     </div>
                     <div id="collapse-240" class="collapse " aria-labelledby="heading-240" data-parent="#accordion">
@@ -659,7 +657,7 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-241">
-                        <button class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-241" aria-expanded="false" aria-controls="#collapse-241">
+                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-241" aria-expanded="false" aria-controls="#collapse-241">
                                                       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
 </svg> هزینه ی ساخت فروشگاه؟                     </button>
@@ -674,7 +672,7 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-242">
-                        <button class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-242" aria-expanded="false" aria-controls="#collapse-242">
+                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-242" aria-expanded="false" aria-controls="#collapse-242">
                                                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
 </svg>   امکان وجود چند فروشگاه؟                       </button>
@@ -689,7 +687,7 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-243">
-                        <button class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-243" aria-expanded="false" aria-controls="#collapse-243">
+                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-243" aria-expanded="false" aria-controls="#collapse-243">
                                                       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
 </svg>  چه تعداد کالا میتوان آپلود کرد؟                       </button>
@@ -705,7 +703,7 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-244">
-                        <button class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-244" aria-expanded="false" aria-controls="#collapse-244">
+                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-244" aria-expanded="false" aria-controls="#collapse-244">
                                                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
 </svg>   امکان تبلیغ برای فروش حضوری هست؟                       </button>
@@ -721,7 +719,7 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-245">
-                        <button class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-245" aria-expanded="false" aria-controls="#collapse-245">
+                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-245" aria-expanded="false" aria-controls="#collapse-245">
                                                       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
 </svg>  امکان داشتن لینک است؟                       </button>
