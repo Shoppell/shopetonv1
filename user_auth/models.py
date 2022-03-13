@@ -20,3 +20,7 @@ class User(AbstractUser):
 
     backend = 'user_auth.mybackend.MobileBackend'
 
+    def hide_mobile(self):
+        mobile = self.mobile[6:11]
+        hidden_mobile =  '******' + mobile
+        return hidden_mobile

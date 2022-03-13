@@ -11,6 +11,8 @@ from django.http import HttpResponse, Http404
 from django.urls import reverse
 from azbankgateways import bankfactories, models as bank_models, default_settings as settings
 from shop.decorators import just_owner
+from persian_tools import digits
+
 
 @login_required(login_url='register')
 def callback_gateway_shop(request):
@@ -71,7 +73,7 @@ def go_to_gateway_shop(request):
 
 
 def all_views_navbar_utils(request):
-    wish_op = 0
+    wish_op = digits.convert_to_fa(0)
     login = False
 
     same_context = {
@@ -87,6 +89,7 @@ def all_views_navbar_utils(request):
         else:
             wish_op = 0
         same_context['login'] = login
+        wish_op = digits.convert_to_fa(wish_op)
         same_context['wish'] = wish_op
 
         if request.user.owner:

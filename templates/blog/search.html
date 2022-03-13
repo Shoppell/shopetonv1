@@ -30,7 +30,7 @@
                             <a class="img-card" href="{% url 'one_product' x.pk %}">
                               <div id="yourContainer" style="height: 250px;">
                             <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
-                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.off }}%</div>
+                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.persian_off }}%</div>
                                      <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
                                           {% for z in x.stars %}
                                   <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">

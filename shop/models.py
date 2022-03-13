@@ -16,6 +16,7 @@ choices_rate = (
     (5, 5),
 )
 from PIL import Image
+from persian_tools import digits, separator
 
 def resize(nameOfFile):
     img = Image.open(nameOfFile)
@@ -52,14 +53,25 @@ class Product(models.Model):
                 resize(x.path)
 
     def last_price(self):
-        return (100-self.off)*self.price/100
+        english_number = (100-self.off)*self.price/100
+        persian_number = round(float(digits.convert_to_fa(english_number)))
+        return persian_number
         
     def price_comma(self):
-        return f"{self.price:,}"
+        persian_number = digits.convert_to_fa(self.price)
+        persian_number = separator.add(persian_number)  
+        return persian_number
     
     def last_comma(self):
         lprice = int((100-self.off)*self.price/100)
-        return f"{lprice:,}"
+        persian_number = digits.convert_to_fa(lprice) 
+        persian_number = separator.add(persian_number) 
+        return persian_number
+
+    def persian_off(self):
+        off = self.off
+        off = digits.convert_to_fa(off)
+        return off
 
     def __str__(self):
         return self.name

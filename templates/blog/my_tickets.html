@@ -9,7 +9,8 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h3 style="font-family: yekan;text-align: center">تیکت های شما</h3><hr>
+			<h3 style="font-family: yekan;text-align: right">تیکت های شما</h3>
+            <hr style="border: solid 2px #006466;">
 		</div>
 
 		<div class="col-md-12">
@@ -80,9 +81,10 @@
       <form method="POST" style="font-family: vazir">
         {% csrf_token %}
         <fieldset class="form-group" style="text-align: right;direction: rtl">
-          <legend class="border-bottom mb-4 font_yekan" style="color: #334756;text-align:right;font-family: yekan;font-size: 24px">
+          <h3 class="mb-4 font_yekan" style="color: #334756;text-align:center;font-family: yekan;font-size: 24px">
             ارسال تیکت
-          </legend>
+          </h3>
+          <hr style="border: solid 2px #006466;">
           {{ form|crispy }}
 
         </fieldset>

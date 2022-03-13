@@ -2,12 +2,12 @@ from random import randint
 from .models import User
 from django.utils.timezone import timedelta
 from django.utils import timezone
+from melipayamak import Api
 
+username = '09930731973'
+password = 'D9HTC'
 
-def send_otp(mobile, otp):
-    from melipayamak import Api
-    username = '09930731973'
-    password = 'D9HTC'
+def send_otp(mobile, otp): 
     api = Api(username, password)
     sms_rest = api.sms()
     text = [otp, ]

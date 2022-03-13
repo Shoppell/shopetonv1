@@ -8,10 +8,11 @@ from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from shop.decorators import just_owner
 import math
-
+from PIL import Image
+from persian_tools import digits
 
 def all_views_navbar_utils(request):
-    wish_op = 0
+    wish_op = digits.convert_to_fa(0)
     login = False
 
     same_context = {
@@ -27,6 +28,7 @@ def all_views_navbar_utils(request):
         else:
             wish_op = 0
         same_context['login'] = login
+        wish_op = digits.convert_to_fa(wish_op)
         same_context['wish'] = wish_op
 
         if request.user.owner:
@@ -350,21 +352,18 @@ def cart(request):
         }
     else:
         wishlist_all = wishlist.objects.filter(buyer=request.user).filter(paid=False)
-        all, post, op = 0, 0, 0
+        all, off, op = 0, 0, 0
         for i in wishlist_all:
             wishlist_p += 1
-            all += i.product.last_price()
+            off += i.product.price * i.product.off/100
             op += i.product.price
-        all_all = int(all+post)
-        off = op-all
-        off = off*10000
-        off = (int)(off/100)
-        off = (off / 100)
-        op = int(op)
+  
+        off = int(off)
+        all_all = op-off
+     
         context = {
             'off': f"{off:,}",
             'all_all': f"{all_all:,}",
-            'owner': owner,
             'all_price': f"{op:,}",
             'wish_list': wishlist_p,
             'wish_all': wishlist_all,

@@ -13,13 +13,15 @@
     {% endif %}
   <div class="container">
     <div class="row">
-      <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="col-lg-10 col-xl-6 mx-auto">
         <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
-          <div class="card-img-left d-none d-md-flex">
+          <!-- <div class="card-img-left d-none d-md-flex">
             <img src="../../static/img/register.jpg">
-          </div>
+          </div> -->
           <div class="card-body p-6 p-sm-5" style="margin-left: 20px">
-            <h5 class="card-title text-center mb-5 fw-light fs-5" style="font-family: yekan;font-size: 18px">ورود|ثبت نام</h5>
+     
+            <h4 class="" style="font-family: yekan;font-size: 24px;text-align: center;font-weight: 800;">ورود | ثبت نام</h4>
+            <hr style="border: solid 2px #FF4742;">
             <form method="POST">
                   {% csrf_token %}
 
@@ -34,9 +36,11 @@
               <hr>
 
               <div class="form-group">
-          <button class="btn btn-outline-info" type="submit"  style="font-family: yekan;font-size: 16px">
-            ثبت نام
-
+    
+          <button class="button-24" type="submit" style="font-family: yekan;width: 80%;margin-left: 10%;
+          ">
+            ورود
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
           </button>
         </div>
 
@@ -49,11 +53,48 @@
 
 
 <style>
+
+    /* CSS */
+.button-24 {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+
 body {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background: linear-gradient(80deg, #304FFE 50%, #EEEEEE 50%);
+    background: linear-gradient(80deg, #ffffff 50%, #ffffff 50%);
 
 }
 

@@ -160,7 +160,7 @@
                                   <div id="yourContainer">
                             <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
                             </div>
-                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.off }}%</div>
+                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.persian_off }}%</div>
                                      <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
                                           {% for z in x.stars %}
                                   <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -296,7 +296,7 @@
                                   <div id="yourContainer">
                             <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
                             </div>
-                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.off }}%</div>
+                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.persian_off }}%</div>
                                      <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
                                           {% for z in x.stars %}
                                   <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -353,20 +353,15 @@
 
  {% for x in scategory %}
                    
-                        <div class="card">
-                            
-                            <a class="img-card" href="{% url 'sup-category' x.pk %}">
-                    
+                <div class="card">
+                  <a class="img-card" href="{% url 'sup-category' x.pk %}">
                     <div id="yourContainer">
-        <img src="{{ x.photo.url }}" style="border-radius:15px;width:100%;height:100%" class="img-thumbnail" />
-</div>
-   
-                          </a>
-                         <div class="product-text">
-                            <h6 style="font-family: vazir;text-align:center;">{{ x.name }}</h6>
-
-                        </div>
+                        <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%;border: none;" class="img-thumbnail" />
                     </div>
+                  </a>
+                <h6 style="font-family: yekan;text-align:center;margin-bottom: 10px;">{{ x.name }}</h6>
+                 
+                </div>
              
  {% endfor %}
                 
@@ -412,7 +407,7 @@
                                   <div id="yourContainer">
                             <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
                             </div>
-                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.off }}%</div>
+                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.persian_off }}%</div>
                                      <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
                                           {% for z in x.stars %}
                                   <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -471,15 +466,14 @@
         <div class="logo-items owl-carousel">
 
  {% for x in hot %}
-                   
-                        
-                        <div class="card">
+                                    
+      <div class="card">
                             
                             <a class="img-card" href="{% url 'one_product' x.pk %}">
                                   <div id="yourContainer">
                             <img src="{{ x.photo.url }}" style="border-radius:15px;width:90%;height:90%;margin:5%" />
                             </div>
-                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.off }}%</div>
+                                <div class="top-left" style="background-color:red;border-radius:15px;padding:1%;color:white">{{ x.persian_off }}%</div>
                                      <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
                                           {% for z in x.stars %}
                                   <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -511,22 +505,17 @@
 
                 </div>
                          
-             </div>
+      </div>
              
  {% endfor %}
                 
         </div>
     </div>
 
-
 {% endif %}
 
-
 <br>
 <br>
-
-
-  
 
 <section id="cta" class="cta">
       <div class="container">
@@ -553,7 +542,7 @@
         <div class="container">
             <h3 style="font-family: yekan;text-align: center">
                 از کجا شروع کنم؟</h3>
-                <hr>
+                <hr style="border: solid 2px #006466;">
         </div>
     </section>
 
@@ -635,9 +624,8 @@
         <div class="container">
             <h3 style="font-family: yekan;text-align: center">
             سوالات شما
-            
             </h3>
-            <hr>
+            <hr style="border: solid 2px #006466;">
         </div>
     </section>
     
