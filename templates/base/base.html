@@ -42,11 +42,10 @@
 			<div class="search-close-switch">+</div>
 			<form class="search-model-form" action = "{% url 'search' %}" method = "POST">
                     {% csrf_token %}
-				<input style="font-family: yekan;text-align: right;direction: rtl;color:white;border-bottom:solid orange" type="text" id="search-input" placeholder="بسرچ..." name="action" >
+				<input style="font-family: yekan;text-align: right;direction: rtl;color:white;border-bottom:solid orange" type="text" id="search-input" placeholder="جست و جو..." name="action" >
 			</form>
 		</div>
 	</div>
-
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm fixed-top" >
@@ -67,7 +66,7 @@
         <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
           <div class="container">
             <div class="row bg-white rounded-0 m-0 shadow-sm">
-              <div class="col-lg-5 col-xl-4 px-0 d-none d-lg-block" style="background: center center url({% static 'img/banner/banner3.jpg' %})no-repeat; background-size: cover;"></div>
+              <div class="col-lg-5 col-xl-4 px-0 d-none d-lg-block" style="background: center center url({% static 'img/banner/category.svg' %})no-repeat; background-size: cover;"></div>
               <div class="col-lg-7 col-xl-8">
                 <div class="p-4" style="text-align:right">
                   <div class="row">
@@ -76,7 +75,10 @@
                           <h6 class="font-weight-bold text-uppercase" style="font-family: yekan">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
-                          </svg><a href="{% url 'sup-category' x.pk  %}" style="color:black"> {{ x.name }} </a><span style="font-size:20px">{{ x.svg|safe }}</span></h6>
+                          </svg>
+                          <a href="{% url 'sup-category' x.pk  %}" style="color:black"> {{ x.name }} </a>
+                          <span style="font-size:20px">{{ x.svg|safe }}</span>
+                        </h6>
                         </div>
                       {% endfor %}
                   </div>
@@ -91,8 +93,11 @@
              <a class="nav-link font-weight-bold text-uppercase search-trigger">
 
 {#              <img src="{% static 'img/icons/search.png' %}" alt="" class="">#}
-<i class="fa-solid fa-magnifying-glass"></i>
+<!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                      جست و جو
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                    </svg>
         </a>
       </li>
     
@@ -163,19 +168,34 @@
                     </li>
 {#                    add product#}
                     <li class="nav-item">
-                        <a href="{% url 'add_product' %}" class="nav-link font-weight-bold text-uppercase">
 
-                            ساخت محصول
-                        </a>
+
+                      <a  href="{% url 'add_product' %}" class="nav-link font-weight-bold text-uppercase">
+                        <button class="button-24" role="button" style="font-family: yekan;height: 30px;
+                        padding-top: 0px;
+                        padding-bottom: 0px;">
+                         ساخت کالا   
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box2" viewBox="0 0 16 16">
+                        <path d="M2.95.4a1 1 0 0 1 .8-.4h8.5a1 1 0 0 1 .8.4l2.85 3.8a.5.5 0 0 1 .1.3V15a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4.5a.5.5 0 0 1 .1-.3L2.95.4ZM7.5 1H3.75L1.5 4h6V1Zm1 0v3h6l-2.25-3H8.5ZM15 5H1v10h14V5Z"/>
+                        </svg>
+                        </button>
+                      </a>   
                     </li>
 {#                    update shop#}
                     <li class="nav-item">
-                        <a href="{% url 'update_shop' %}" class="nav-link font-weight-bold text-uppercase">
-                            تغییر فروشگاه</a></li>
-
-                            <div class="fa-3x">
-                            </div>
-                            
+                      <a  href="{% url 'update_shop' %}" class="nav-link font-weight-bold text-uppercase">
+                        <button class="button-24" role="button" style="font-family: yekan;height: 30px;
+                        padding-top: 0px;
+                        padding-bottom: 0px;">
+                              تغییر/ تکمیل فروشگاه
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
+                                <path d="M9.972 2.508a.5.5 0 0 0-.16-.556l-.178-.129a5.009 5.009 0 0 0-2.076-.783C6.215.862 4.504 1.229 2.84 3.133H1.786a.5.5 0 0 0-.354.147L.146 4.567a.5.5 0 0 0 0 .706l2.571 2.579a.5.5 0 0 0 .708 0l1.286-1.29a.5.5 0 0 0 .146-.353V5.57l8.387 8.873A.5.5 0 0 0 14 14.5l1.5-1.5a.5.5 0 0 0 .017-.689l-9.129-8.63c.747-.456 1.772-.839 3.112-.839a.5.5 0 0 0 .472-.334z"/>
+                              </svg>
+                        </button>
+                      </a>   
+                        
+                  </li>   
+                  
 {#                    shop#}
                     <li class="nav-item">
                         <a href="{% url 'shop' my_shop.slug %}" class="nav-link font-weight-bold text-uppercase">
@@ -188,6 +208,8 @@
                         <a href="{% url 'help' %}" class="nav-link font-weight-bold text-uppercase">
                             آموزش ساخت فروشگاه</a>
                     </li>
+
+                    
                     
                 {% endif %}
 

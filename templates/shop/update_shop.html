@@ -11,8 +11,8 @@
         <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
 
           <div class="card-body p-6 p-sm-5" style="margin-left: 20px">
-            <h5 class="card-title text-center mb-5 fw-light fs-5" style="font-family: yekan">تغییر فروشگاه</h5>
-
+            <h4 class="card-title text-center mb-5 fw-light fs-5" style="font-family: yekan">تغییر / تکمیل  فروشگاه </h4>
+            <hr style="border: solid 2px #FF4742;">
             <form method="POST" enctype="multipart/form-data" style="direction: rtl;font-family:vazir">
                   {% csrf_token %}
 
@@ -96,13 +96,24 @@
               </div>
 
 
+              <div class="form-floating mb-3" style="text-align: right">
 
+                <label for="floatingPasswordConfirm" style="text-align: right;font-family: vazir">                    <svg xmlns="http://www.w3.org/2000/svg" style="color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                  <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                </svg>
+                استان
+                </label>
+                       <br>
+                  <br>
+                        {{ form.province }}
+              </div>
 
                    <div class="form-floating mb-3" style="text-align: right">
 
                 <label for="floatingPasswordConfirm" style="text-align: right;font-family: vazir">                    <svg xmlns="http://www.w3.org/2000/svg" style="color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
-  <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
-</svg>آدرس فروشگاه</label>
+                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                  </svg>آدرس فروشگاه
+                </label>
                        <br>
                   <br>
                         {{ form.address }}
@@ -251,6 +262,20 @@
                         {{ form.about  }}
               </div>
 
+
+              <div class="form-floating mb-3" style="text-align: right">
+
+                <label for="floatingPasswordConfirm" style="text-align: right;font-family: vazir"> 
+                <svg xmlns="http://www.w3.org/2000/svg" style="color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+              </svg>
+                شماره ی کارت برای واریز
+              </label>
+                       <br>
+                  <br>
+                        {{ form.bank_account  }}
+              </div>
+
             <button class="button-24" role="button" style="font-family: yekan;height: 30px;
             padding-top: 0px;
             padding-bottom: 0px;">
@@ -275,7 +300,7 @@ body {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background: linear-gradient(-80deg, #304FFE 50%, #EEEEEE 50%);
+    /* background: linear-gradient(-80deg, #EEEEEE 50%, #EEEEEE 50%); */
 
 }
 

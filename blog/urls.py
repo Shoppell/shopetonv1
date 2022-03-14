@@ -1,6 +1,7 @@
 from django.urls import path
 from blog.views import home, contact, my_tickets, profile, search, about_us, category, supcategory
-from shop.views import help
+from shop.views import help_video
+
 
 urlpatterns = [
     path('', home, name='home'),
@@ -11,6 +12,6 @@ urlpatterns = [
     path('search/', search, name='search'),
     path('category/<int:pk>', category, name='category'),
     path('supcategory/<int:pk>', supcategory, name='sup-category'),
-    path('help/', help, name='help'),
+    path('help/', help_video, name='help'),
 
 ]

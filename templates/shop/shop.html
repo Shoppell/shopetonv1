@@ -3,12 +3,12 @@
 {% block content %}
 {% load static %}
 
- <div class="hero-image" >
+ <div class="hero-image" style="height: max-content;">
          <br>
              <br>
                  <br>
                       <br>
-  <div style="text-align:center">
+  <div style="text-align:center;padding-bottom: 50px;">
   
                         {% if shop.verified %}
                             <svg xmlns="http://www.w3.org/2000/svg" style="color: cornflowerblue;margin-bottom:10px" width="35px" height="35px" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
@@ -90,29 +90,29 @@
        
        
 
+{% if shop.image_banner1 or shop.image_banner2 or shop.image_banner3 %}
 
-{% if image_banner1 or image_banner2 or image_banner3 %}
     <section class="features-section spad" style="padding:0px">
 <div class="container"  >
     <div class="row g-3 mt-5 mb-5">
         <div class="col-md-4" style="margin-top: 3%;margin-bottom: 3%;">
             <div class="card">
-                {% if image_banner1 %}
-                <div > <img src="{{ shop.image_banner1.url }}"  style="border-radius:15px" alt="..."> </div>
+                {% if shop.image_banner1 %}
+                <div > <img src="{{ shop.image_banner1.url }}"  style="border-radius:15px;height:250px" alt="..."> </div>
                 {% endif %}
             </div>
         </div>
         <div class="col-md-4" style="margin-top: 3%;margin-bottom: 3%;">
             <div class="card">
-                 {% if image_banner1 %}
-                <div> <img src="{{ shop.image_banner2.url }}"  style="border-radius:15px" alt="..."> </div>
+                 {% if shop.image_banner2 %}
+                <div> <img src="{{ shop.image_banner2.url }}"  style="border-radius:15px;height:250px" alt="..."> </div>
                   {% endif %}
             </div>
         </div>
         <div class="col-md-4" style="margin-top: 3%;margin-bottom: 3%;">
             <div class="card">
-                {% if image_banner1 %}
-                <div > <img src="{{ shop.image_banner3.url }}" style="border-radius:15px" alt="..."> </div>
+                {% if shop.image_banner3 %}
+                <div > <img src="{{ shop.image_banner3.url }}" style="border-radius:15px;height:250px" alt="..."> </div>
                {% endif %}
             </div>
         </div>
@@ -122,38 +122,30 @@
  
     </section>
  
- 
-
-    
- 
- 
-
-    {% if products %}
+{% if products %}
     
 <section class="page-add" style="margin-bottom:0px">
     <div class="container">
         <h3 style="font-family:yekan;text-align: right;float: right;"> آخرین محصولات</h3>
         <a href="{% url 'all_products' shop.slug %}" style="float: left;">
-            <button class="btn btn-outline-info" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="add_cart">
+            <button class="btn btn-outline-danger" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="add_cart">
                     تمام کالاهای این فروشگاه
 
             </button>
+
+            
         </a>
         <br>
         <hr style="border: solid 2px #006466;">
     </div>
- 
-               
- 
-        </div>
+</div>
     </section>
     <!--background-image: url({% static 'img/purple.png' %});-->
    <div class="logo-section spad" style="padding-top: 0px;">
         <div class="logo-items owl-carousel">
 
  {% for x in products %}
-                   
-                        
+                               
                         <div class="card">
                             
                             <a class="img-card" href="{% url 'product-details' shop.slug x.pk %}">
@@ -178,10 +170,10 @@
 
 
    {% if x.verified %}
-                                            <svg style="color: cornflowerblue" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+                                        <svg style="color: cornflowerblue" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
                                           <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
                                         </svg>
-{% endif %}
+    {% endif %}
 
                                      </div>
                           </a>
@@ -198,7 +190,7 @@
         </div>
     </div>
 
-    {% endif %}
+{% endif %}
 
 
 
@@ -218,7 +210,7 @@
  {% for x in off %}
                    
                         
-                        <div class="card">
+            <div class="card">
                             
                             <a class="img-card" href="{% url 'product-details' shop.slug x.pk %}">
                                             <div id="yourContainer">
@@ -255,7 +247,7 @@
                         <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
                     </div>
                          
-                </div>
+            </div>
              
  {% endfor %}
                 
@@ -272,7 +264,7 @@
 <section class="lookbok-section">
         <div class="container-fluid">
         
-            <div class="row" style="background-image:  url({% static 'img/part.jpg' %});">
+            <div class="row" style="background-image:  url({% static 'img/banner/5.jpg' %});">
                       <div class="col-lg-5 offset-lg-1">
                     <div class="lookbok-pic" style="width:70%;margin-left:15%">
             <br>
@@ -289,6 +281,7 @@
                         <div class="section-title">
                             <h2 style="text-align: right;font-family:yekan;color:white;font-size: 40px;">{{ shop.title_look }} </h2>
                         </div>
+                        <hr style="border: solid 2px orange;">
                         <p style="text-align: right;font-family:vazir;font-size:18px;color:wheat">{{ shop.description_look }}</p>
 
                     </div>
@@ -298,6 +291,30 @@
         </div>
     </section>
 {% endif %}
+
+{% if products %}
+
+{% else %}
+
+<section id="cta" class="cta">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-start">
+          <h3 style="font-family: yekan"> !کالایی نداری</h3>
+          <hr style="border: solid 2px orange;">
+          <p style="font-family: yekan">همین الان بسازش</p>
+        </div>
+        <div class="col-lg-3 cta-btn-container text-center">
+          <a class="cta-btn align-middle" href="{% url 'add_product' %}" style="font-family: yekan">ساخت کالا</a>
+        </div>
+      </div>
+
+    </div>
+</section>    
+
+{% endif %}
+
 
 {% if rare %}
 <section class="page-add" style="margin-bottom:0px">
@@ -324,15 +341,15 @@
                                      <div class="top-right" style="background-color:white;border-radius:15px;padding:1%;color:white">
                                           {% for z in x.stars %}
                                   <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-</svg>
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                    </svg>
                             {% endfor %}
 
 
                          {% for z in x.stars_left %}
-            <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-</svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                        </svg>
 
                             {% endfor %}
 
@@ -345,13 +362,13 @@
 
                                      </div>
                           </a>
-                <div class="product-text">
-                    <h6 style="font-family: vazir;text-align:right;margin-right: 5%;font-size: 20px;">{{ x.name }}</h6>
-                    <del style="color: grey;font-family: vazir;text-align:left;margin-left: 5%;font-size: 14px;">{{ x.price_comma }}تومان</del>
-                    <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
-                        </div>
+                    <div class="product-text">
+                        <h6 style="font-family: vazir;text-align:right;margin-right: 5%;font-size: 20px;">{{ x.name }}</h6>
+                        <del style="color: grey;font-family: vazir;text-align:left;margin-left: 5%;font-size: 14px;">{{ x.price_comma }}تومان</del>
+                        <p style="color: green;font-family: vazir;text-align:left;font-size:18px;font-weight: 700;margin-bottom:0px;margin-left: 5%;">{{ x.last_comma }}تومان</p>
+                    </div>
                         
-                        </div>
+                </div>
              
  {% endfor %}
                 
@@ -426,24 +443,19 @@
 
 {% endif %}
 
-<br>
-<br>
 
-    <div class="contact-section" style="background-image:  url({% static 'img/part.jpg' %});">
+    <div class="contact-section" style="background-image:  url({% static 'img/banner/6.jpg' %});">
         <div class="container">
                             <section class="page-add">
         <div class="container">
             <h3 style="font-family: yekan;text-align: center;color:white">
             درباره ی ما
             </h3>
-
-            <hr style="border: solid 2px #006466;">
+            <hr style="border: solid 2px orange;">
         </div>
     </section>
     
             <div class="row">
-
-
                 <div class="col-lg-3 offset-lg-1">
                     <div class="contact-widget">
                         {% if shop.address_bool %}
@@ -480,14 +492,12 @@
 {% if comments %}
 <br>
 
-      
-       <div class="container">
+    <div class="container">
         <h3 style="font-family: yekan;text-align: center">
         نظرات شما
         <hr style="border: solid 2px #006466;">
-    </h3>
-       </div>
-        
+        </h3>
+    </div>   
 
 <div class="container mt-6 mb-5">
     <div class="d-flex justify-content-center row">
@@ -498,10 +508,10 @@
     {% for comment in comments %}
                      <div class="commented-section mt-2">
                     <div class="d-flex flex-row align-items-center commented-user">
-                        <h5>{{ comment.feedbacker.hide_mobile }} </h5>
-                        <h4>|</h4>
-                       <span style="font-size: 16px;font-family: vazir;color:black" class="mb-1 ml-2">{{ comment.jpublish }}</span>
-                          <h4>|</h4>
+                        <h6>{{ comment.feedbacker.hide_mobile }} </h6>
+                        <h5>|</h5>
+                       <span style="font-size: 14px;font-family: vazir;color:black" class="mb-1 ml-2">{{ comment.jpublish }}</span>
+                          <h5>|</h5>
                              {% for i in comment.stars %}
 
                              <svg xmlns="http://www.w3.org/2000/svg" color="#F0A500" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -564,6 +574,56 @@
 {% endif %}
     <!-- Logo Section End -->
 <style>
+
+
+.cta {
+  background: #006466;
+  background-size: cover;
+  padding: 120px 0;
+}
+
+.cta h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.cta p {
+  color: #fff;
+}
+
+.cta .cta-btn {
+  font-family: "Jost", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.cta .cta-btn:hover {
+  background: #f77f00;
+  border: 2px solid #f77f00;
+}
+
+@media (max-width: 1024px) {
+  .cta {
+    background-attachment: scroll;
+  }
+}
+
+@media (min-width: 769px) {
+  .cta .cta-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
 
 #yourContainer {
     /*width: 500px;*/

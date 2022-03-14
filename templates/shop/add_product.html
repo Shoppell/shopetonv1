@@ -10,7 +10,8 @@
         <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
 
           <div class="card-body p-6 p-sm-5" style="margin-left: 20px">
-            <h5 class="card-title text-center mb-5 fw-light fs-5" style="font-family: yekan">ساخت کالا</h5>
+            <h4 class="card-title text-center mb-5 fw-light fs-5" style="font-family: yekan">ساخت کالا</h4>
+            <hr style="border: solid 2px #FF4742;">
             <form method="POST" enctype="multipart/form-data" style="direction: rtl">
                   {% csrf_token %}
 
@@ -124,6 +125,15 @@
                         {{ form.in_stock }}
               </div>
 
+              
+              <div class="form-floating mb-3" style="text-align: right">
+
+                <label for="floatingPasswordConfirm" style="text-align: right;font-family: vazir">کالا قابل فروش آنلاین هست؟</label>
+                                      <br>
+                    <br>
+                        {{ form.sale_available }}
+              </div>
+
 
                    <div class="form-floating mb-3" style="text-align: right">
 
@@ -173,7 +183,7 @@ body {
     color: #000;
     overflow-x: hidden;
     height: 100%;
-    background: linear-gradient(80deg, #304FFE 50%, #EEEEEE 50%);
+    /* background: linear-gradient(80deg, #304FFE 50%, #EEEEEE 50%); */
 
 }
 

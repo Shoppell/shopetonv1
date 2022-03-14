@@ -1,6 +1,41 @@
+from email.policy import default
+from statistics import mode
 from django.db import models
 from django.utils import timezone
 
+province_choices = (
+    ('آذربایجان شرقی','آذربایجان شرقی'),        
+    ('آذربایجان غربی','آذربایجان غربی'),        
+    ('اردبیل','اردبیل'),
+    ('اصفهان','اصفهان'),
+    ('البرز','البرز'),
+    ('ایلام','ایلام'),
+    ('بوشهر','بوشهر'),
+    ('تهران','تهران'),
+    ('چهارمحال و بختیاری','چهارمحال و بختیاری'),
+    ('خراسان جنوبی','خراسان جنوبی'),
+    ('خراسان رضوی','خراسان رضوی'),
+    ('خراسان شمالی','خراسان شمالی'),
+    ('خوزستان','خوزستان'),
+    ('زنجان','زنجان'),
+    ('سمنان','سمنان'),
+    ('سیستان و بلوچستان','سیستان و بلوچستان'),
+    ('فارس','فارس'),
+    ('قزوین','قزوین'),
+    ('قم','قم'),
+    ('کردستان','کردستان'),
+    ('کرمان','کرمان'),
+    ('کرمانشاه','کرمانشاه'),
+    ('کهگیلویه وبویراحمد','کهگیلویه وبویراحمد'),
+    ('گلستان','گلستان'),
+    ('گیلان','گیلان'),
+    ('لرستان','لرستان'),
+    ('مازندران','مازندران'),
+    ('مرکزی','مرکزی'),
+    ('هرمزگان','هرمزگان'),
+    ('همدان','همدان'),
+    ('یزد','یزد'),
+)
 
 choices_post = (
     ('کالا در حال آماده سازی برای ارسال است', 'کالا در حال آماده سازی برای ارسال است'),
@@ -15,6 +50,7 @@ choices_rate = (
     (4, 4),
     (5, 5),
 )
+
 from PIL import Image
 from persian_tools import digits, separator
 
@@ -42,6 +78,7 @@ class Product(models.Model):
     most_off = models.BooleanField(default=False, verbose_name='کالا پر تخفیف است؟')
     rare = models.BooleanField(default=False, verbose_name='کالا بسیار ویژه است؟')
     in_stock = models.BooleanField(default=True, verbose_name='کالا موجود است؟')
+    sale_available = models.BooleanField(default=True, verbose_name='کالا قابل فروش در سایت است؟')
     star_rate = models.PositiveIntegerField(blank=True, default=0)
     stars = models.CharField(default=0, max_length=5)
     stars_left = models.CharField(blank=True, max_length=5)
@@ -83,7 +120,7 @@ class myshop(models.Model):
     head_title = models.CharField(max_length=100,verbose_name='عنوان سر تیتر')
     head_description = models.CharField(max_length=80, verbose_name='توضیحات سر تیتر')
     head_link = models.TextField(blank=True, verbose_name='لینک تیتر')
-    image_head1 = models.ImageField(upload_to="shops.head", verbose_name='عکس تیتر اول')
+    image_head1 = models.ImageField(upload_to="shops.head",default='shops.head/1713248.jpg', verbose_name='عکس تیتر اول')
     slug = models.SlugField(unique=True, verbose_name='آیدی فروشگاه شما')
     phone = models.CharField(max_length=30, verbose_name='تلفن شما')
     phone_bool = models.BooleanField(default=False, verbose_name='تلفن شما نمایش داده شود؟')
@@ -107,6 +144,9 @@ class myshop(models.Model):
     time_created = models.DateTimeField(default=timezone.now, blank=True, verbose_name='زمان ساخت فروشگاه')
     seller_info = models.CharField(max_length=150)
     about = models.TextField(blank=True, verbose_name='درباره ی فروشگاه')
+    province = models.CharField(max_length=50,choices=province_choices)
+    bank_account = models.CharField(max_length=16)
+
 
     def save(self, *args, **kwargs):
         for x in [self.image_head1, self.image_banner1, self.image_banner2, self.image_banner3, self.image_look]:

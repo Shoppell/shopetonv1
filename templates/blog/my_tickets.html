@@ -18,10 +18,14 @@
 
                 {% for x in tickets %}
 				<div class="panel panel-default">
-					<div class="panel-heading" role="tab" id="headingOne" style="background-color: #11d632;color: black;border-radius: 5px">
-						<h4 class="panel-title" style="text-align: center;font-family: yekan">
-						<a style="direction: rtl;margin: auto;color: white;text-align: center;font-family:vazir" class="collapsed " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{ x.pk }}" aria-expanded="true" aria-controls="collapseOne">
+					<div class="panel-heading" role="tab" id="headingOne" style="background-color: #FF4742;color: black;border-radius: 5px">
+						<h4 class="panel-title" style="text-align: right;font-family: yekan">
+						<a style="direction: rtl;margin: auto;color: white;text-align: center;font-family:yeken" class="collapsed " role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{ x.pk }}" aria-expanded="true" aria-controls="collapseOne">
 						{{ x.title }}
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left" viewBox="0 0 16 16">
+                            <path d="M10 12.796V3.204L4.519 8 10 12.796zm-.659.753-5.48-4.796a1 1 0 0 1 0-1.506l5.48-4.796A1 1 0 0 1 11 3.204v9.592a1 1 0 0 1-1.659.753z"/>
+                          </svg>
 						</a>
 						</h4>
                     
@@ -30,16 +34,13 @@
 					<div id="collapseOne{{ x.pk }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" style="font-family:vazir">
                     <h3 style="font-family: yekan;text-align: right">سوال</h3>
                     	<div class="panel-body" style="text-align: right;font-size: 16px">
-
                                    <p style="font-family: vazir;text-align: right;font-size: 16px">
                                 {{ x.question|linebreaks }}
                             </p>
-
-
 						</div>
+
                         <h3 style="text-align: right;font-family: yekan">پاسخ</h3>
 						<div class="panel-body" style="font-size: 16px;text-align: right">
-
                                    <p style="font-family:vazir;text-align: right;font-size: 16px">
                                 {{ x.answer|linebreaks }}
                             </p>
@@ -50,12 +51,14 @@
                 {% else %}
                 <div id="collapseOne{{ x.pk }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                   <h3 style="font-family: yekan;text-align: right">سوال</h3>
+                  <hr style="border: solid 2px #006466;width:20%;margin-left:80%">
                     	<div class="panel-body" style="font-size: 16px;text-align: right;font-family:vazir">
                             <p style="font-family: vazir;text-align: right;font-size: 16px">
                                 {{ x.question|linebreaks }}
                             </p>
 						</div>
                     <h3 style="text-align: right;font-family: yekan">پاسخ</h3>
+                    <hr style="border: solid 2px #006466;width:40%;margin-left:60%">
 						<div class="panel-body" style="text-align: right;font-size: 16px">
                             <p style="text-align: right;font-family: vazir;font-size: 16px">
                                 هنوز پاسخ داده نشده است :/
@@ -89,18 +92,21 @@
 
         </fieldset>
 
-        <div class="form-group">
-          <button class="btn " type="submit"  style="font-family: yekan;font-size: 20px">
-         ارسال
-
-          </button>
-        </div>
-
+            <button class="button-24" role="button" style="font-family: yekan;height: 30px;
+            padding-top: 0px;
+            padding-bottom: 0px;">
+                  ارسال
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                  </svg>
+            </button>
+      
+  
       </form>
     </div>
 
 
-
+    <br>
 
     <style>
 

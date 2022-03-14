@@ -22,7 +22,7 @@
         </div>
     </section>
     <!-- Page Add Section End -->
-    {% if owner %}
+    {% if own %}
           <div class="container">
                  <form method="POST">
         {% csrf_token %}
@@ -171,7 +171,7 @@
                          <!--    </p>-->
              
 
-                     {% if product.in_stock %}
+                     {% if product.in_stock  %}
                             <div class="col-md-12">
                                 <p style="color: #000;font-family: yekan;font-size: 16px;text-align: right">موجود
                                 
@@ -182,7 +182,7 @@
                                 </p>
                             </div>
 
-                            {% else %}
+                    {% else %}
                               	<div class="col-md-12">
                                     <p style="color: #000;font-family: yekan;font-size: 16px;text-align: right"> 
                                     
@@ -194,7 +194,7 @@
                                 
                                 </p>
                                 </div>
-                            {% endif %}
+                    {% endif %}
 
                        {% if any %}
 
@@ -203,7 +203,7 @@
         {% csrf_token %}
              {{ form2|crispy }}
                      <br>
-         {% if product.in_stock %}
+         {% if product.in_stock and product.sale_available%}
               <div class="form-group">
                   <button class="btn btn-outline-success" type="submit"  style="font-family: yekan;font-size: 16px" name="action" value="add_cart">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">

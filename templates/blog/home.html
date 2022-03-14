@@ -13,8 +13,17 @@
          <hr style="border: solid 2px orange;width: 80%;margin-top: 5%;">
           <h2 ><span style="color: white;margin-right: 10px;font-family:yekan">فروشگاه/سایت اختصاصی خودت رو داشته باش</span></h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a style="font-family:yekan" href="{% url 'register' %}" class="btn-get-started scrollto font_yekan">همین حالا شروع کن</a>
-            <a href="{% url 'about' %}" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span style="font-family:yekan" >آشنایی با ما</span></a>
+            <a style="font-family:yekan" href="{% url 'add_shop' %}" class="btn-get-started scrollto font_yekan">همین حالا شروع کن
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+              </svg>
+            
+            </a>
+            <a href="{% url 'about' %}" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span style="font-family:yekan" >آشنایی با ما
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
+                <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"/>
+              </svg>
+            </span></a>
           </div>
         </div>
       
@@ -82,7 +91,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services backups">
-                    <div class="icon">  <img src="{% static 'img/s4.png' %}"> </div>
+                    <div class="icon">  <img src="{% static 'img/s6.png' %}"> </div>
                <h4 style="font-family:yekan">
                         بدون کارمزد</h4>
                         <hr>
@@ -106,7 +115,7 @@
         <div class="col-md-4">
             <div class="box">
                 <div class="our-services database">
-                    <div class="icon">  <img src="{% static 'img/s6.png' %}"> </div>
+                    <div class="icon">  <img src="{% static 'img/s4.png' %}"> </div>
                            <h4 style="font-family:yekan">
                         اضافه کردن کالا </h4>
                         <hr>
@@ -130,10 +139,15 @@
             <p style="font-family: yekan;font-size: 18px;">پیگیر ما باش</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="https://instagram.com/shopeton.ir" style="font-family: yekan">دیدن</a>
+            <a class="cta-btn align-middle" href="https://instagram.com/shopeton.ir" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+              </svg>
+              دیدن
+            </a>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -265,7 +279,11 @@
             <p style="font-family: yekan;font-size: 18px;">برای کامنت گذاشتن و خرید ثبت نام کن</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="{% url 'register' %}" style="font-family: yekan">ثبت نام/ورود</a>
+            <a class="cta-btn align-middle" href="{% url 'register' %}" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key-fill" viewBox="0 0 16 16">
+                <path d="M3.5 11.5a3.5 3.5 0 1 1 3.163-5H14L15.5 8 14 9.5l-1-1-1 1-1-1-1 1-1-1-1 1H6.663a3.5 3.5 0 0 1-3.163 2zM2.5 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+              ثبت نام/ورود</a>
           </div>
         </div>
 
@@ -376,10 +394,15 @@
       <div class="col-lg-9 text-center text-lg-start">
         <h3 style="font-family: yekan">ارتباط با ما</h3>
         <hr style="border: solid 2px orange;">
-        <p style="font-family: yekan;font-size: 18px;">منتظر نظرات و پیشنهادات هستیم</p>
+        <p style="font-family: yekan;font-size: 18px;">
+          منتظر نظرات و پیشنهادات هستیم</p>
       </div>
       <div class="col-lg-3 cta-btn-container text-center">
-        <a class="cta-btn align-middle" href="{% url 'contact' %}" style="font-family: yekan">ارتباط با ما</a>
+        <a class="cta-btn align-middle" href="{% url 'contact' %}" style="font-family: yekan">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+          </svg>
+          ارتباط با ما</a>
       </div>
     </div>
 
@@ -526,7 +549,11 @@
             <p style="font-family: yekan">همین الان بسازش</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="{% url 'register' %}" style="font-family: yekan">ساخت فروشگاه</a>
+            <a class="cta-btn align-middle" href="{% url 'register' %}" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+              </svg>
+              ساخت فروشگاه</a>
           </div>
         </div>
 
@@ -562,6 +589,7 @@
   <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
 </svg>
 			<h4 style="color: white;font-family: yekan;text-align: right">ثبت نام کن</h4>
+      <hr style="border: solid 2px white;">
 			<p style="color: white;font-family: vazir;text-align: right">از طریق منوی صفحه وارد صفحه ی ثبت نام شو و ثبت نام کن</p>
 
 		</div>
@@ -574,6 +602,7 @@
   <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zm2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5z"/>
 </svg>
 				<h4 style="color: white;font-family: yekan;text-align: right">فروشگاهت رو بساز</h4>
+        <hr style="border: solid 2px white;">
 			<p style="color: white;font-family: vazir;text-align: right">ساخت فروشگاه رو از منو انتخاب و پر کن فرم رو</p>
 
 		</div>
@@ -589,6 +618,7 @@
   <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
 </svg>
 					<h4 style="color: white;font-family: yekan;text-align: right">محصولاتت رو اضافه کن</h4>
+          <hr style="border: solid 2px white;">
 			<p style="color: white;font-family: vazir;text-align: right">بعد از ساخت فروشگاه روی ساخت محصول کلیک کن و پر کن فرم هارو</p>
 
 		</div>
@@ -622,7 +652,7 @@
          <section class="page-add" style="margin-bottom:0px">
         <div class="container">
             <h3 style="font-family: yekan;text-align: center">
-            سوالات شما
+             سوالات متداول
             </h3>
             <hr style="border: solid 2px #006466;">
         </div>
@@ -630,7 +660,7 @@
     
     
 <div class="container" style="font-family:vazir;text-align:right">
-<div id="accordion" class="py-5">
+<div id="accordion"  style="padding: 0px;">
       <div class="card border-0">
           <div class="card-header p-0 border-0" id="heading-239">
           <button class="btn btn-link accordion-title border-0 collapse" data-toggle="collapse" data-target="#collapse-239" aria-expanded="true" aria-controls="#collapse-239"><i class="fas fa-minus text-center d-flex align-items-center justify-content-center h-100"></i>lorem header  1 </button>
@@ -639,7 +669,7 @@
     </div>
             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;" >
                     <div class="card-header p-0 border-0" id="heading-240">
-                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-240" aria-expanded="false" aria-controls="#collapse-240">
+                        <button style="text-decoration: none;color: orange;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-240" aria-expanded="false" aria-controls="#collapse-240">
 
                       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
@@ -657,10 +687,11 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-241">
-                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-241" aria-expanded="false" aria-controls="#collapse-241">
-                                                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-</svg> هزینه ی ساخت فروشگاه؟                     </button>
+                  <button style="text-decoration: none;;color: orange;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-241" aria-expanded="false" aria-controls="#collapse-241">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                      </svg> هزینه ی ساخت فروشگاه؟                    
+                  </button>
                     </div>
                     <div id="collapse-241" class="collapse " aria-labelledby="heading-241" data-parent="#accordion">
                         <div class="card-body accordion-body">
@@ -672,10 +703,11 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-242">
-                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-242" aria-expanded="false" aria-controls="#collapse-242">
-                                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-</svg>   امکان وجود چند فروشگاه؟                       </button>
+                      <button  style="text-decoration: none;;color: orange;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-242" aria-expanded="false" aria-controls="#collapse-242">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                      </svg>   امکان وجود چند فروشگاه؟     
+                  </button>
                     </div>
                     <div id="collapse-242" class="collapse " aria-labelledby="heading-242" data-parent="#accordion">
                         <div class="card-body accordion-body">
@@ -687,10 +719,11 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-243">
-                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-243" aria-expanded="false" aria-controls="#collapse-243">
-                                                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-</svg>  چه تعداد کالا میتوان آپلود کرد؟                       </button>
+                      <button style="text-decoration: none;color: orange;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-243" aria-expanded="false" aria-controls="#collapse-243">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+                          </svg>  چه تعداد کالا میتوان آپلود کرد؟           
+                      </button>
                     </div>
                     <div id="collapse-243" class="collapse " aria-labelledby="heading-243" data-parent="#accordion">
                         <div class="card-body accordion-body">
@@ -703,10 +736,12 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-244">
-                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-244" aria-expanded="false" aria-controls="#collapse-244">
-                                                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
-</svg>   امکان تبلیغ برای فروش حضوری هست؟                       </button>
+                        <button style="text-decoration: none;color: orange;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-244" aria-expanded="false" aria-controls="#collapse-244">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+      </svg>
+         امکان تبلیغ برای فروش حضوری هست؟      
+                 </button>
                     </div>
                     <div id="collapse-244" class="collapse " aria-labelledby="heading-244" data-parent="#accordion">
                         <div class="card-body accordion-body">
@@ -719,7 +754,7 @@
                 </div>
                             <div class="card border-0 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="card-header p-0 border-0" id="heading-245">
-                        <button style="text-decoration: none;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-245" aria-expanded="false" aria-controls="#collapse-245">
+                        <button style="text-decoration: none;color: orange;" class="btn btn-link accordion-title border-0 collapsed" data-toggle="collapse" data-target="#collapse-245" aria-expanded="false" aria-controls="#collapse-245">
                                                       <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-left-short" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
 </svg>  امکان داشتن لینک است؟                       </button>
@@ -747,7 +782,11 @@
             <p style="font-family: yekan">بیشتر بدون</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="{% url 'about' %}" style="font-family: yekan">درباره ی ما</a>
+            <a class="cta-btn align-middle" href="{% url 'about' %}" style="font-family: yekan">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
+                <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"/>
+              </svg>
+              درباره ی ما</a>
           </div>
         </div>
 

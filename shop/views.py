@@ -6,7 +6,7 @@ from blog.models import SupCategory, Category, Comment, Comment_shop
 from user_auth.models import User
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
-from shop.decorators import just_owner
+from shop.decorators import just_owner, not_owner
 import math
 from PIL import Image
 from persian_tools import digits
@@ -41,7 +41,7 @@ def all_views_navbar_utils(request):
     return same_context
 
 
-def help(request):
+def help_video(request):
     context = all_views_navbar_utils(request)
     return render(request, 'blog/help.html', context)
 
@@ -109,6 +109,7 @@ def shop(request, slug):
         else:
             add_comment = True
     comments = comments[0:10]
+    
     context = {
         'products': products_shop,
         'add_comment': add_comment,
@@ -149,7 +150,9 @@ def update_shop(request):
 
 
 @login_required(login_url='register')
+@not_owner
 def add_shop(request):
+    print("here")
     if request.method == 'POST':
         form1 = ShopCreateForm(request.POST, request.FILES)
         user = request.user
@@ -164,7 +167,7 @@ def add_shop(request):
             return redirect('home')
     else:
         form1 = ShopCreateForm()
-        print(form1.errors)
+    print(form1.errors)
     context = {
         'form': form1,
     }
@@ -185,7 +188,7 @@ def update_product(request, pk):
         form = Updateproduct(request.POST, request.FILES, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('shop', shop.slug)
+            return redirect('product-details', shop.slug, pk)
     else:
         form = Updateproduct(instance=product)
 
@@ -225,6 +228,8 @@ def add_product(request):
 def product_details(request, slug, pk):
     shop = myshop.objects.get(slug=slug)
     own = False
+    if shop == request.user.shop:
+        own = True
     product_details = shop.products.get(pk=pk)
     comments = Comment.objects.filter(products=product_details).order_by('-date_posted')
     score =0
