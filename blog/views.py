@@ -239,21 +239,6 @@ def home(request):
     all_shop = myshop.objects.all()[0:k]
     category_m = Category.objects.all()
 
-
-    username = '09930731973'
-    password = 'D9HTC'
-    api = Api(username, password)
-
-# def  product_registered_customer(mobile, link1):      
-    sms_rest = api.sms()
-    mobile='09128481380'
-    link1='google.com'
-    text = [link1 ]
-    to = mobile
-    bodyId = 79817
-    sms_rest.send_by_base_number(text, to, bodyId)
-
-
     if request.method == 'POST':
         value = request.POST['action']
         if value == 'rate':
