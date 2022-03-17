@@ -12,6 +12,7 @@ from django.urls import reverse
 from azbankgateways import bankfactories, models as bank_models, default_settings as settings
 from shop.decorators import just_owner
 from persian_tools import digits
+from melipayamak import Api
 
 
 @login_required(login_url='register')
@@ -237,6 +238,21 @@ def home(request):
     all_products = Product.objects.all()[0:k]
     all_shop = myshop.objects.all()[0:k]
     category_m = Category.objects.all()
+
+
+    username = '09930731973'
+    password = 'D9HTC'
+    api = Api(username, password)
+
+# def  product_registered_customer(mobile, link1):      
+    sms_rest = api.sms()
+    mobile='09128481380'
+    link1='google.com'
+    text = [link1 ]
+    to = mobile
+    bodyId = 79817
+    sms_rest.send_by_base_number(text, to, bodyId)
+
 
     if request.method == 'POST':
         value = request.POST['action']
