@@ -12,7 +12,7 @@ from django.urls import reverse
 from azbankgateways import bankfactories, models as bank_models, default_settings as settings
 from shop.decorators import just_owner
 from persian_tools import digits
-from melipayamak import Api
+
 
 
 @login_required(login_url='register')
