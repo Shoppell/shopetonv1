@@ -26,7 +26,7 @@ def  product_registered_seller (mobile, link1):
 
 def  Store_registered (mobile, linkedit,linkproduct):  
     sms_rest = api.sms()
-    text = [linkedit,linkproduct ]
+    text =linkedit+';'+linkproduct
     to = mobile
     bodyId = 79820
     sms_rest.send_by_base_number(text, to, bodyId)
@@ -54,14 +54,14 @@ def  money_deposited  (mobile, link1):
 
 def  message_from_seller(mobile,text1,link1):  
     sms_rest = api.sms()
-    text = [text1,link1 ]
+    text =text1+';'+link1
     to = mobile
     bodyId = 80085
     sms_rest.send_by_base_number(text, to, bodyId)
 
 def  message_from_customer(mobile,text1,link1):  
     sms_rest = api.sms()
-    text = [text1,link1 ]
+    text =text1+';'+link1
     to = mobile
     bodyId = 80084
     sms_rest.send_by_base_number(text, to, bodyId)
